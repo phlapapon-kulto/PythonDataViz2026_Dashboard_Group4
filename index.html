@@ -288,7 +288,7 @@
               <div>
                 <label class="block text-xs font-medium text-slate-600 mb-1.5">ค้นหาคำสำคัญ (Search)</label>
                 <div class="relative">
-                  <input type="text" id="tab1-filter-search" oninput="debounce(applyTab1Filters, 300)()" placeholder="เช่น deepfake, bot, autonomous..." class="w-full text-xs rounded-lg border-slate-200 border p-2.5 pl-8 bg-white text-slate-800 focus:ring-2 focus:ring-cyber-blue focus:border-transparent">
+                  <input type="text" id="tab1-filter-search" oninput="onTab1SearchInput()" placeholder="เช่น deepfake, bot, autonomous..." class="w-full text-xs rounded-lg border-slate-200 border p-2.5 pl-8 bg-white text-slate-800 focus:ring-2 focus:ring-cyber-blue focus:border-transparent">
                   <i data-lucide="search" class="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-3"></i>
                 </div>
               </div>
@@ -471,7 +471,7 @@
               <div>
                 <label class="block text-xs font-medium text-slate-600 mb-1.5">ค้นหาพาดหัวข่าว / คำสำคัญ</label>
                 <div class="relative">
-                  <input type="text" id="tab2-filter-search" oninput="debounce(applyTab2Filters, 300)()" placeholder="เช่น ออมสิน, เงินกู้, หุ้น, เทรด..." class="w-full text-xs rounded-lg border-slate-200 border p-2.5 pl-8 bg-white text-slate-800 focus:ring-2 focus:ring-cyber-pink focus:border-transparent">
+                  <input type="text" id="tab2-filter-search" oninput="onTab2SearchInput()" placeholder="เช่น ออมสิน, เงินกู้, หุ้น, เทรด..." class="w-full text-xs rounded-lg border-slate-200 border p-2.5 pl-8 bg-white text-slate-800 focus:ring-2 focus:ring-cyber-pink focus:border-transparent">
                   <i data-lucide="search" class="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-3"></i>
                 </div>
               </div>

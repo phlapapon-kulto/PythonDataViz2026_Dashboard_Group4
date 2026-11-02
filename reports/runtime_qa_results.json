@@ -1,0 +1,320 @@
+{
+  "timestamp": "2026-11-02 11:22:49",
+  "offline": {
+    "env": "Standalone Offline (file://)",
+    "url": "file:///C:/Users/USER/PythonDataViz2026_Dashboard_Group4/index.html",
+    "checks": [
+      {
+        "name": "Network Assets Loaded",
+        "passed": true,
+        "details": "Total requests: 18: ['file:///C:/Users/USER/PythonDataViz2026_Dashboard_Group4/index.html', 'file:///C:/Users/USER/PythonDataViz2026_Dashboard_Group4/vendor/tailwindcss.js', 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap', 'file:///C:/Users/USER/PythonDataViz2026_Dashboard_Group4/vendor/lucide.min.js', 'file:///C:/Users/USER/PythonDataViz2026_Dashboard_Group4/vendor/chart.umd.min.js', 'file:///C:/Users/USER/PythonDataViz2026_Dashboard_Group4/css/custom.css', 'file:///C:/Users/USER/PythonDataViz2026_Dashboard_Group4/data/processed/data_store.js', 'file:///C:/Users/USER/PythonDataViz2026_Dashboard_Group4/js/app.js']"
+      },
+      {
+        "name": "Zero External JavaScript/CSS Execution",
+        "passed": true,
+        "details": "External scripts: []"
+      },
+      {
+        "name": "Zero JavaScript Console Errors",
+        "passed": true,
+        "details": "Total errors: 0"
+      },
+      {
+        "name": "Vendor Libraries Loaded (Tailwind, Chart.js, Lucide SVG)",
+        "passed": true,
+        "details": "Tailwind=True, Chart=True, Lucide=True, IconsRendered=24"
+      },
+      {
+        "name": "Data Store Preloaded (1,749 AIID, 2,514 AFNC, 48 ACSC weeks, 409 panel weeks)",
+        "passed": true,
+        "details": "AIID=1749, AFNC=2514, ReportedWeeks=48, TotalPanelWeeks=409"
+      },
+      {
+        "name": "Tab 1 KPIs (1,749 incidents, 21 casualties, 7 active risk domains)",
+        "passed": true,
+        "details": "{'total': '1,749', 'casualties': '21', 'growth': '-42.0%', 'domains': '7'}"
+      },
+      {
+        "name": "Tab 1 Charts (1: Top Domains, 2: Timeline, 3: Risk Donut, 4: Regional Bar)",
+        "passed": true,
+        "details": "{'topDomains': True, 'timeline': True, 'riskDist': True, 'regional': True}"
+      },
+      {
+        "name": "Tab 1 Interactive Filter & Search Reactivity",
+        "passed": true,
+        "details": "{'filtered2024': '310', 'searchedAutonomous': '0', 'resetTotal': '1,749'}"
+      },
+      {
+        "name": "Tab 2 KPIs & Table (2,514 checked, 2,339 fake, 93.04%, 10 rows page 1)",
+        "passed": true,
+        "details": "{'tab1Hidden': True, 'tab2Hidden': False, 'totalChecked': '2,514', 'fakeCount': '2,339', 'distortedCount': '57', 'fakePct': '93.04%', 'avgViews': '678', 'tableRowCount': 10, 'pageInfo': '1 / 252'}"
+      },
+      {
+        "name": "Tab 2 Charts (5: Fake Topics, 6: Verdict Donut, 7: Monthly Trends, 8: Top Views)",
+        "passed": true,
+        "details": "{'fakeTopics': True, 'verdictDonut': True, 'monthlyTrends': True, 'topViews': True}"
+      },
+      {
+        "name": "Tab 2 Table Pagination (Page 1 -> Page 2 -> Page 1)",
+        "passed": true,
+        "details": "{'page1': '1 / 252', 'page2': '2 / 252', 'page3': '1 / 252'}"
+      },
+      {
+        "name": "Tab 3 Charts (9: Dual-Axis Line, 10: Scatter Cases, 11: Scatter Loss)",
+        "passed": true,
+        "details": "{'weeklyDual': True, 'scatterCases': True, 'scatterLoss': True}"
+      },
+      {
+        "name": "Tab 3 Outlier Sensitivity Pearson Toggle (All: r=-0.0903 vs Clean: r=+0.5377)",
+        "passed": true,
+        "details": "{'allWeeks': {'r': '-0.0903', 'p': 'p-value: 0.5409 (N = 48)', 'badge': 'ไม่มีนัยสำคัญ', 'avgCases': '7,946 คดี'}, 'cleanWeeks': {'r': '+0.5377', 'p': 'p-value: 0.0000 (N = 47)', 'badge': 'มีนัยสำคัญ (p < 0.05)', 'avgCases': '6,427 คดี'}}"
+      },
+      {
+        "name": "All 11 Dashboard Charts Initialized & Active in Browser",
+        "passed": true,
+        "details": "11/11 charts: ['topDomains', 'timeline', 'riskDist', 'regional', 'fakeTopics', 'verdictDonut', 'monthlyTrends', 'topViews', 'weeklyDual', 'scatterCases', 'scatterLoss']"
+      }
+    ],
+    "errors": [],
+    "charts": {
+      "topDomains": true,
+      "timeline": true,
+      "riskDist": true,
+      "regional": true,
+      "fakeTopics": true,
+      "verdictDonut": true,
+      "monthlyTrends": true,
+      "topViews": true,
+      "weeklyDual": true,
+      "scatterCases": true,
+      "scatterLoss": true
+    },
+    "kpis": {
+      "tab1": {
+        "total": "1,749",
+        "casualties": "21",
+        "growth": "-42.0%",
+        "domains": "7"
+      },
+      "tab2": {
+        "tab1Hidden": true,
+        "tab2Hidden": false,
+        "totalChecked": "2,514",
+        "fakeCount": "2,339",
+        "distortedCount": "57",
+        "fakePct": "93.04%",
+        "avgViews": "678",
+        "tableRowCount": 10,
+        "pageInfo": "1 / 252"
+      }
+    }
+  },
+  "local_http": {
+    "env": "Local Web Server (http://127.0.0.1:8080)",
+    "url": "http://127.0.0.1:8080/index.html",
+    "checks": [
+      {
+        "name": "Network Assets Loaded",
+        "passed": true,
+        "details": "Total requests: 19: ['http://127.0.0.1:8080/index.html', 'http://127.0.0.1:8080/vendor/tailwindcss.js', 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap', 'http://127.0.0.1:8080/vendor/lucide.min.js', 'http://127.0.0.1:8080/vendor/chart.umd.min.js', 'http://127.0.0.1:8080/css/custom.css', 'http://127.0.0.1:8080/data/processed/data_store.js', 'http://127.0.0.1:8080/js/app.js']"
+      },
+      {
+        "name": "Zero JavaScript Console Errors",
+        "passed": true,
+        "details": "Total errors: 0"
+      },
+      {
+        "name": "Vendor Libraries Loaded (Tailwind, Chart.js, Lucide SVG)",
+        "passed": true,
+        "details": "Tailwind=True, Chart=True, Lucide=True, IconsRendered=24"
+      },
+      {
+        "name": "Data Store Preloaded (1,749 AIID, 2,514 AFNC, 48 ACSC weeks, 409 panel weeks)",
+        "passed": true,
+        "details": "AIID=1749, AFNC=2514, ReportedWeeks=48, TotalPanelWeeks=409"
+      },
+      {
+        "name": "Tab 1 KPIs (1,749 incidents, 21 casualties, 7 active risk domains)",
+        "passed": true,
+        "details": "{'total': '1,749', 'casualties': '21', 'growth': '-42.0%', 'domains': '7'}"
+      },
+      {
+        "name": "Tab 1 Charts (1: Top Domains, 2: Timeline, 3: Risk Donut, 4: Regional Bar)",
+        "passed": true,
+        "details": "{'topDomains': True, 'timeline': True, 'riskDist': True, 'regional': True}"
+      },
+      {
+        "name": "Tab 1 Interactive Filter & Search Reactivity",
+        "passed": true,
+        "details": "{'filtered2024': '310', 'searchedAutonomous': '0', 'resetTotal': '1,749'}"
+      },
+      {
+        "name": "Tab 2 KPIs & Table (2,514 checked, 2,339 fake, 93.04%, 10 rows page 1)",
+        "passed": true,
+        "details": "{'tab1Hidden': True, 'tab2Hidden': False, 'totalChecked': '2,514', 'fakeCount': '2,339', 'distortedCount': '57', 'fakePct': '93.04%', 'avgViews': '678', 'tableRowCount': 10, 'pageInfo': '1 / 252'}"
+      },
+      {
+        "name": "Tab 2 Charts (5: Fake Topics, 6: Verdict Donut, 7: Monthly Trends, 8: Top Views)",
+        "passed": true,
+        "details": "{'fakeTopics': True, 'verdictDonut': True, 'monthlyTrends': True, 'topViews': True}"
+      },
+      {
+        "name": "Tab 2 Table Pagination (Page 1 -> Page 2 -> Page 1)",
+        "passed": true,
+        "details": "{'page1': '1 / 252', 'page2': '2 / 252', 'page3': '1 / 252'}"
+      },
+      {
+        "name": "Tab 3 Charts (9: Dual-Axis Line, 10: Scatter Cases, 11: Scatter Loss)",
+        "passed": true,
+        "details": "{'weeklyDual': True, 'scatterCases': True, 'scatterLoss': True}"
+      },
+      {
+        "name": "Tab 3 Outlier Sensitivity Pearson Toggle (All: r=-0.0903 vs Clean: r=+0.5377)",
+        "passed": true,
+        "details": "{'allWeeks': {'r': '-0.0903', 'p': 'p-value: 0.5409 (N = 48)', 'badge': 'ไม่มีนัยสำคัญ', 'avgCases': '7,946 คดี'}, 'cleanWeeks': {'r': '+0.5377', 'p': 'p-value: 0.0000 (N = 47)', 'badge': 'มีนัยสำคัญ (p < 0.05)', 'avgCases': '6,427 คดี'}}"
+      },
+      {
+        "name": "All 11 Dashboard Charts Initialized & Active in Browser",
+        "passed": true,
+        "details": "11/11 charts: ['topDomains', 'timeline', 'riskDist', 'regional', 'fakeTopics', 'verdictDonut', 'monthlyTrends', 'topViews', 'weeklyDual', 'scatterCases', 'scatterLoss']"
+      }
+    ],
+    "errors": [],
+    "charts": {
+      "topDomains": true,
+      "timeline": true,
+      "riskDist": true,
+      "regional": true,
+      "fakeTopics": true,
+      "verdictDonut": true,
+      "monthlyTrends": true,
+      "topViews": true,
+      "weeklyDual": true,
+      "scatterCases": true,
+      "scatterLoss": true
+    },
+    "kpis": {
+      "tab1": {
+        "total": "1,749",
+        "casualties": "21",
+        "growth": "-42.0%",
+        "domains": "7"
+      },
+      "tab2": {
+        "tab1Hidden": true,
+        "tab2Hidden": false,
+        "totalChecked": "2,514",
+        "fakeCount": "2,339",
+        "distortedCount": "57",
+        "fakePct": "93.04%",
+        "avgViews": "678",
+        "tableRowCount": 10,
+        "pageInfo": "1 / 252"
+      }
+    }
+  },
+  "github_pages": {
+    "env": "Live GitHub Pages (Production)",
+    "url": "https://phlapapon-kulto.github.io/PythonDataViz2026_Dashboard_Group4/",
+    "checks": [
+      {
+        "name": "Network Assets Loaded",
+        "passed": true,
+        "details": "Total requests: 19: ['https://phlapapon-kulto.github.io/PythonDataViz2026_Dashboard_Group4/', 'https://phlapapon-kulto.github.io/PythonDataViz2026_Dashboard_Group4/vendor/tailwindcss.js', 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap', 'https://phlapapon-kulto.github.io/PythonDataViz2026_Dashboard_Group4/vendor/lucide.min.js', 'https://phlapapon-kulto.github.io/PythonDataViz2026_Dashboard_Group4/vendor/chart.umd.min.js', 'https://phlapapon-kulto.github.io/PythonDataViz2026_Dashboard_Group4/css/custom.css', 'https://phlapapon-kulto.github.io/PythonDataViz2026_Dashboard_Group4/data/processed/data_store.js', 'https://phlapapon-kulto.github.io/PythonDataViz2026_Dashboard_Group4/js/app.js']"
+      },
+      {
+        "name": "Zero JavaScript Console Errors",
+        "passed": true,
+        "details": "Total errors: 0"
+      },
+      {
+        "name": "Vendor Libraries Loaded (Tailwind, Chart.js, Lucide SVG)",
+        "passed": true,
+        "details": "Tailwind=True, Chart=True, Lucide=True, IconsRendered=24"
+      },
+      {
+        "name": "Data Store Preloaded (1,749 AIID, 2,514 AFNC, 48 ACSC weeks, 409 panel weeks)",
+        "passed": true,
+        "details": "AIID=1749, AFNC=2514, ReportedWeeks=48, TotalPanelWeeks=409"
+      },
+      {
+        "name": "Tab 1 KPIs (1,749 incidents, 21 casualties, 7 active risk domains)",
+        "passed": true,
+        "details": "{'total': '1,749', 'casualties': '21', 'growth': '-42.0%', 'domains': '7'}"
+      },
+      {
+        "name": "Tab 1 Charts (1: Top Domains, 2: Timeline, 3: Risk Donut, 4: Regional Bar)",
+        "passed": true,
+        "details": "{'topDomains': True, 'timeline': True, 'riskDist': True, 'regional': True}"
+      },
+      {
+        "name": "Tab 1 Interactive Filter & Search Reactivity",
+        "passed": true,
+        "details": "{'filtered2024': '310', 'searchedAutonomous': '0', 'resetTotal': '1,749'}"
+      },
+      {
+        "name": "Tab 2 KPIs & Table (2,514 checked, 2,339 fake, 93.04%, 10 rows page 1)",
+        "passed": true,
+        "details": "{'tab1Hidden': True, 'tab2Hidden': False, 'totalChecked': '2,514', 'fakeCount': '2,339', 'distortedCount': '57', 'fakePct': '93.04%', 'avgViews': '678', 'tableRowCount': 10, 'pageInfo': '1 / 252'}"
+      },
+      {
+        "name": "Tab 2 Charts (5: Fake Topics, 6: Verdict Donut, 7: Monthly Trends, 8: Top Views)",
+        "passed": true,
+        "details": "{'fakeTopics': True, 'verdictDonut': True, 'monthlyTrends': True, 'topViews': True}"
+      },
+      {
+        "name": "Tab 2 Table Pagination (Page 1 -> Page 2 -> Page 1)",
+        "passed": true,
+        "details": "{'page1': '1 / 252', 'page2': '2 / 252', 'page3': '1 / 252'}"
+      },
+      {
+        "name": "Tab 3 Charts (9: Dual-Axis Line, 10: Scatter Cases, 11: Scatter Loss)",
+        "passed": true,
+        "details": "{'weeklyDual': True, 'scatterCases': True, 'scatterLoss': True}"
+      },
+      {
+        "name": "Tab 3 Outlier Sensitivity Pearson Toggle (All: r=-0.0903 vs Clean: r=+0.5377)",
+        "passed": true,
+        "details": "{'allWeeks': {'r': '-0.0903', 'p': 'p-value: 0.9716 (N = 48)', 'badge': 'ไม่มีนัยสำคัญ', 'avgCases': '7,946 คดี'}, 'cleanWeeks': {'r': '+0.5377', 'p': 'p-value: 0.0772 (N = 47)', 'badge': 'ไม่มีนัยสำคัญ', 'avgCases': '6,427 คดี'}}"
+      },
+      {
+        "name": "All 11 Dashboard Charts Initialized & Active in Browser",
+        "passed": true,
+        "details": "11/11 charts: ['topDomains', 'timeline', 'riskDist', 'regional', 'fakeTopics', 'verdictDonut', 'monthlyTrends', 'topViews', 'weeklyDual', 'scatterCases', 'scatterLoss']"
+      }
+    ],
+    "errors": [],
+    "charts": {
+      "topDomains": true,
+      "timeline": true,
+      "riskDist": true,
+      "regional": true,
+      "fakeTopics": true,
+      "verdictDonut": true,
+      "monthlyTrends": true,
+      "topViews": true,
+      "weeklyDual": true,
+      "scatterCases": true,
+      "scatterLoss": true
+    },
+    "kpis": {
+      "tab1": {
+        "total": "1,749",
+        "casualties": "21",
+        "growth": "-42.0%",
+        "domains": "7"
+      },
+      "tab2": {
+        "tab1Hidden": true,
+        "tab2Hidden": false,
+        "totalChecked": "2,514",
+        "fakeCount": "2,339",
+        "distortedCount": "57",
+        "fakePct": "93.04%",
+        "avgViews": "678",
+        "tableRowCount": 10,
+        "pageInfo": "1 / 252"
+      }
+    }
+  }
+}

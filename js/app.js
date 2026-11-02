@@ -53,6 +53,18 @@ function debounce(func, wait) {
   };
 }
 
+let _t1SearchTimer = null;
+function onTab1SearchInput() {
+  clearTimeout(_t1SearchTimer);
+  _t1SearchTimer = setTimeout(applyTab1Filters, 250);
+}
+
+let _t2SearchTimer = null;
+function onTab2SearchInput() {
+  clearTimeout(_t2SearchTimer);
+  _t2SearchTimer = setTimeout(applyTab2Filters, 250);
+}
+
 function formatNumber(num) {
   if (num === null || num === undefined || isNaN(num)) return 'N/A';
   return Number(num).toLocaleString('th-TH');
@@ -106,11 +118,22 @@ function calculatePearson(xArr, yArr) {
 }
 
 function approximateStudentP(t, df) {
-  // Gaussian approximation for large df or standard beta tail
-  const z = Math.sqrt(2 * df) * (Math.sqrt(1 + (t * t) / df) - 1);
-  // standard normal complementary error function
-  const p = Math.exp(-0.717 * z - 0.416 * z * z);
-  return Math.max(0.0001, Math.min(1.0, p));
+  // Hill's transformation from Student's t to standard normal z
+  const a = 1.0 - 1.0 / (4.0 * df);
+  const z = Math.abs(t) * a;
+  if (z > 8.0) return 0.00001;
+
+  // Abramowitz & Stegun 26.2.17 polynomial approximation for standard normal tail
+  const b0 = 0.2316419;
+  const b1 = 0.319381530;
+  const b2 = -0.356563782;
+  const b3 = 1.781477937;
+  const b4 = -1.821255978;
+  const b5 = 1.330274429;
+  const k = 1.0 / (1.0 + b0 * z);
+  const poly = k * (b1 + k * (b2 + k * (b3 + k * (b4 + k * b5))));
+  const phi = (1.0 / Math.sqrt(2 * Math.PI)) * Math.exp(-0.5 * z * z) * poly;
+  return Math.max(0.00001, Math.min(1.0, 2.0 * phi));
 }
 
 // Safe Chart Destroyer & Creator
