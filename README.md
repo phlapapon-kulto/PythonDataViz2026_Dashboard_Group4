@@ -197,3 +197,5 @@ OK
 | **ไอคอนไม่แสดงผลเมื่อ Offline** | ไฟล์ `vendor/lucide.min.js` สูญหายหรือไม่ได้ดาวน์โหลด | รันคำสั่ง `python scripts/download_vendor_assets.py` เพื่อซิงก์ไฟล์เข้าสู่ `vendor/` |
 | **ข้อมูลในตารางไม่ตรงกับ Raw Data** | ยังไม่ได้รันสคริปต์ Clean และ Integrate | รันคำสั่ง `python scripts/clean_data.py` และ `python scripts/integrate_data.py` |
 | **GitHub Pages แสดงหน้า 404** | ยังไม่ได้เปิดการตั้งค่า Pages ใน GitHub Settings | ไปที่แท็บ Settings > Pages และเลือก Source เป็น GitHub Actions หรือ main branch |
+
+Dashboard Link: https://phlapapon-kulto.github.io/PythonDataViz2026_Dashboard_Group4/
