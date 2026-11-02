@@ -124,11 +124,11 @@
 
 ## 6. Testing & Quality Assurance Results
 Automated test suite executed via `python -m unittest`:
-- **Total Tests Run:** 10
-- **Passed:** 10 (100% Pass Rate)
+- **Total Tests Run:** 13
+- **Passed:** 13 (100% Pass Rate)
 - **Failed:** 0
-- **Execution Time:** 0.505s
-- Verified assertions include: Primary key uniqueness, casualty count = 21, financial fake count = 2,339, fake share % = 93.04%, continuous Sunday week aggregation = 409, reported weeks = 48, missing value preservation, Pearson $r$ calculations.
+- **Execution Time:** 0.495s
+- Verified assertions include: Primary key uniqueness, casualty count = 21, financial fake count = 2,339, fake share % = 93.04%, continuous Sunday week aggregation = 409, reported weeks = 48, missing value preservation, Pearson $r$ calculations, local vendor assets existence, zero-CORS data bundle integrity, and strict relative path compliance.
 
 ---
 

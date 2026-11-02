@@ -5,8 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ภัยดิจิทัลยุค AI: วิเคราะห์ความเสี่ยงจากปัญญาประดิษฐ์ ข่าวปลอม และการหลอกลวงออนไลน์</title>
   
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind CSS (Local with CDN fallback) -->
+  <script src="./vendor/tailwindcss.js"></script>
+  <script>
+    if (typeof tailwind === 'undefined') {
+      document.write('<script src="https://cdn.tailwindcss.com"><\/script>');
+    }
+  </script>
   <script>
     tailwind.config = {
       theme: {
@@ -26,19 +31,29 @@
     }
   </script>
 
-  <!-- Google Fonts: Prompt & IBM Plex Sans Thai -->
+  <!-- Google Fonts: Prompt & IBM Plex Sans Thai (Web) with local system font fallback in CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Lucide Icons (Local with CDN fallback) -->
+  <script src="./vendor/lucide.min.js"></script>
+  <script>
+    if (typeof lucide === 'undefined') {
+      document.write('<script src="https://unpkg.com/lucide@latest"><\/script>');
+    }
+  </script>
 
-  <!-- Chart.js & Plugins -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <!-- Chart.js (Local with CDN fallback) -->
+  <script src="./vendor/chart.umd.min.js"></script>
+  <script>
+    if (typeof Chart === 'undefined') {
+      document.write('<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"><\/script>');
+    }
+  </script>
 
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="css/custom.css">
+  <!-- Custom Styles (Relative path) -->
+  <link rel="stylesheet" href="./css/custom.css">
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
 
@@ -93,19 +108,19 @@
         </button>
 
         <div class="pt-6 px-3 pb-2 text-[10px] font-bold text-slate-400 uppercase tracking-wider">ข้อมูลและเอกสาร</div>
-        <a href="reports/DATA_INSPECTION_REPORT.md" target="_blank" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-medium text-slate-500 hover:bg-slate-50 transition-all">
+        <a href="./reports/DATA_INSPECTION_REPORT.md" target="_blank" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-medium text-slate-500 hover:bg-slate-50 transition-all">
           <i data-lucide="file-search" class="w-4 h-4 text-slate-400"></i>
           <span>Data Inspection Report</span>
         </a>
-        <a href="reports/DATA_CLEANING_REPORT.md" target="_blank" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-medium text-slate-500 hover:bg-slate-50 transition-all">
+        <a href="./reports/DATA_CLEANING_REPORT.md" target="_blank" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-medium text-slate-500 hover:bg-slate-50 transition-all">
           <i data-lucide="file-check-2" class="w-4 h-4 text-slate-400"></i>
           <span>Data Cleaning Report</span>
         </a>
-        <a href="reports/DATA_INTEGRATION_REPORT.md" target="_blank" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-medium text-slate-500 hover:bg-slate-50 transition-all">
+        <a href="./reports/DATA_INTEGRATION_REPORT.md" target="_blank" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-medium text-slate-500 hover:bg-slate-50 transition-all">
           <i data-lucide="layers" class="w-4 h-4 text-slate-400"></i>
           <span>Data Integration Report</span>
         </a>
-        <a href="DATA_DICTIONARY.md" target="_blank" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-medium text-slate-500 hover:bg-slate-50 transition-all">
+        <a href="./DATA_DICTIONARY.md" target="_blank" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-medium text-slate-500 hover:bg-slate-50 transition-all">
           <i data-lucide="book-open" class="w-4 h-4 text-slate-400"></i>
           <span>Data Dictionary</span>
         </a>
@@ -816,9 +831,9 @@
   </div>
 
   <!-- Load Data Store (Zero-CORS fallback & lightning speed) -->
-  <script src="data/processed/data_store.js"></script>
+  <script src="./data/processed/data_store.js"></script>
 
   <!-- Load Main Application Logic -->
-  <script src="js/app.js"></script>
+  <script src="./js/app.js"></script>
 </body>
 </html>

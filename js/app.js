@@ -139,9 +139,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initDashboard();
   } else {
     Promise.all([
-      fetch('data/processed/ai_incidents.json').then(r => r.json()),
-      fetch('data/processed/financial_news.json').then(r => r.json()),
-      fetch('data/processed/weekly_scams.json').then(r => r.json())
+      fetch('./data/processed/ai_incidents.json').then(r => r.json()),
+      fetch('./data/processed/financial_news.json').then(r => r.json()),
+      fetch('./data/processed/weekly_scams.json').then(r => r.json())
     ]).then(([aiid, fin, weekly]) => {
       STATE.aiid = aiid;
       STATE.financial = fin;

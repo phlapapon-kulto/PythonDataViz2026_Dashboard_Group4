@@ -1,14 +1,14 @@
 # Quality Assurance & Testing Report (QA Test Report)
 ## โครงการ: ภัยดิจิทัลยุค AI: วิเคราะห์ความเสี่ยงจากปัญญาประดิษฐ์ ข่าวปลอม และการหลอกลวงออนไลน์
 **Report Date:** 2026-11-02  
-**Test Suite Status:** 10 / 10 Tests Passed (100% Success Rate)  
-**Execution Time:** 0.505 seconds  
+**Test Suite Status:** 13 / 13 Tests Passed (100% Success Rate)  
+**Execution Time:** 0.495 seconds  
 
 ---
 
 ## 1. Test Suite Summary
 
-An automated test suite comprising data quality assertions, analytical formulas, statistical correlations, and integration integrity checks was executed using Python `unittest`.
+An automated test suite comprising data quality assertions, analytical formulas, statistical correlations, offline standalone readiness, and integration integrity checks was executed using Python `unittest`.
 
 | Test Suite File | Test Method | Target Variable / Formula | Asserted Expected Value | Actual Test Result | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -22,6 +22,9 @@ An automated test suite comprising data quality assertions, analytical formulas,
 | `test_analytics.py` | `test_pearson_correlation_all_48_weeks` | Pearson $r$ & $p$ across all 48 weeks | $r = -0.0903$ ($p = 0.5418$) | $r = -0.0903, p = 0.5418$ | **PASSED** |
 | `test_analytics.py` | `test_pearson_correlation_excluding_outlier` | Pearson $r$ & $p$ for 47 weeks (no outlier) | $r = 0.5377$ ($p < 0.001$) | $r = 0.5377, p < 0.001$ | **PASSED** |
 | `test_analytics.py` | `test_average_loss_per_case` | $\sum \text{loss} / \sum \text{cases}$ | Total loss 18.18B / 381.4K cases | 47,660.85 THB/case | **PASSED** |
+| `test_offline_readiness.py` | `test_local_vendor_assets_exist` | `vendor/` bundles existence & sizes | tailwindcss, chart.umd, lucide > 50KB | All 3 bundles present & verified | **PASSED** |
+| `test_offline_readiness.py` | `test_no_broken_absolute_asset_paths` | Relative path audit in `index.html` | Strictly relative `./` or local paths | 0 absolute `/` paths found | **PASSED** |
+| `test_offline_readiness.py` | `test_datastore_offline_bundle` | `data_store.js` global data arrays | `window.DATA_*` arrays complete | Arrays validated with real IDs | **PASSED** |
 
 ---
 
