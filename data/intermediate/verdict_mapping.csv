@@ -1,0 +1,6 @@
+﻿verdict_th,verdict_group,rows
+ข่าวปลอม,Fake,9520
+ข่าวบิดเบือน,Distorted,1435
+ข่าวจริง,True,3503
+(ค่าอื่น),Other,0
+(ว่าง),Unverified,3268

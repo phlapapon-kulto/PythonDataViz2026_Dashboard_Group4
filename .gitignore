@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Secrets
+.env
+.env.*
+
+# Editors and local tools
+.claude/
+.vscode/
+.idea/
+
+# Excel lock files and OS noise
+~$*.xlsx
+Thumbs.db
+.DS_Store

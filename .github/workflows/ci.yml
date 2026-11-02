@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+      - name: Rebuild data and reports from raw files
+        run: python run_pipeline.py
+      - name: Fail if the rebuilt data differs from what is committed
+        run: git diff --exit-code -- data/processed
+      - name: Run tests
+        run: python -m pytest tests -q
+      - name: Check the app starts
+        run: python -c "from app import app; print(app.title)"

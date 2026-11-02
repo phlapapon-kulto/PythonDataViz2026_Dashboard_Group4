@@ -1,0 +1,1663 @@
+{
+  "steps": [
+    {
+      "dataset": "ai",
+      "action": "read latest snapshot",
+      "rows_before": 1749,
+      "rows_after": 1749,
+      "reason": "Header is on row 3; rows 1-2 are banners"
+    },
+    {
+      "dataset": "ai",
+      "action": "clean types and labels",
+      "rows_before": 1749,
+      "rows_after": 1749,
+      "reason": "No rows removed; missing values stay missing"
+    },
+    {
+      "dataset": "afnc",
+      "action": "read afnc_items",
+      "rows_before": 17726,
+      "rows_after": 17726,
+      "reason": "One row per post"
+    },
+    {
+      "dataset": "afnc",
+      "action": "add verdict groups and finance scopes",
+      "rows_before": 17726,
+      "rows_after": 17726,
+      "reason": "No rows removed; reposts kept"
+    },
+    {
+      "dataset": "acsc",
+      "action": "read acsc_weekly",
+      "rows_before": 48,
+      "rows_after": 48,
+      "reason": "One row per weekly briefing"
+    },
+    {
+      "dataset": "acsc",
+      "action": "align weeks and tag quality",
+      "rows_before": 48,
+      "rows_after": 48,
+      "reason": "Flagged weeks are kept and tagged, not deleted"
+    },
+    {
+      "dataset": "panel",
+      "action": "read weekly_panel",
+      "rows_before": 409,
+      "rows_after": 409,
+      "reason": "Types only; values are checked against the sources later"
+    },
+    {
+      "dataset": "integration",
+      "action": "left join ACSC onto week spine",
+      "rows_before": 409,
+      "rows_after": 409,
+      "reason": "Rows must not grow; ACSC has one row per week"
+    }
+  ],
+  "facts": {
+    "inspection": {
+      "raw_dir": "datasets",
+      "files": [
+        {
+          "file": "AIID_Excel_Export-20260803.xlsx",
+          "size_bytes": 2376845,
+          "sheets": [
+            {
+              "sheet": "Incidents",
+              "state": "visible",
+              "rows": 1608,
+              "columns": 59
+            },
+            {
+              "sheet": "Reports",
+              "state": "visible",
+              "rows": 7454,
+              "columns": 12
+            },
+            {
+              "sheet": "Entities",
+              "state": "visible",
+              "rows": 6905,
+              "columns": 2
+            },
+            {
+              "sheet": "Data Dictionary",
+              "state": "visible",
+              "rows": 61,
+              "columns": 5
+            },
+            {
+              "sheet": "Coverage Map",
+              "state": "visible",
+              "rows": 8,
+              "columns": 4
+            }
+          ]
+        },
+        {
+          "file": "AIID_Excel_Export-20260810.xlsx",
+          "size_bytes": 2393320,
+          "sheets": [
+            {
+              "sheet": "Incidents",
+              "state": "visible",
+              "rows": 1621,
+              "columns": 59
+            },
+            {
+              "sheet": "Reports",
+              "state": "visible",
+              "rows": 7490,
+              "columns": 12
+            },
+            {
+              "sheet": "Entities",
+              "state": "visible",
+              "rows": 6984,
+              "columns": 2
+            },
+            {
+              "sheet": "Data Dictionary",
+              "state": "visible",
+              "rows": 61,
+              "columns": 5
+            },
+            {
+              "sheet": "Coverage Map",
+              "state": "visible",
+              "rows": 8,
+              "columns": 4
+            }
+          ]
+        },
+        {
+          "file": "AIID_Excel_Export-20260817.xlsx",
+          "size_bytes": 2407287,
+          "sheets": [
+            {
+              "sheet": "Incidents",
+              "state": "visible",
+              "rows": 1633,
+              "columns": 59
+            },
+            {
+              "sheet": "Reports",
+              "state": "visible",
+              "rows": 7528,
+              "columns": 12
+            },
+            {
+              "sheet": "Entities",
+              "state": "visible",
+              "rows": 7018,
+              "columns": 2
+            },
+            {
+              "sheet": "Data Dictionary",
+              "state": "visible",
+              "rows": 61,
+              "columns": 5
+            },
+            {
+              "sheet": "Coverage Map",
+              "state": "visible",
+              "rows": 8,
+              "columns": 4
+            }
+          ]
+        },
+        {
+          "file": "AIID_Excel_Export-20260824.xlsx",
+          "size_bytes": 2426764,
+          "sheets": [
+            {
+              "sheet": "Incidents",
+              "state": "visible",
+              "rows": 1644,
+              "columns": 59
+            },
+            {
+              "sheet": "Reports",
+              "state": "visible",
+              "rows": 7606,
+              "columns": 12
+            },
+            {
+              "sheet": "Entities",
+              "state": "visible",
+              "rows": 7053,
+              "columns": 2
+            },
+            {
+              "sheet": "Data Dictionary",
+              "state": "visible",
+              "rows": 61,
+              "columns": 5
+            },
+            {
+              "sheet": "Coverage Map",
+              "state": "visible",
+              "rows": 8,
+              "columns": 4
+            }
+          ]
+        },
+        {
+          "file": "AIID_Excel_Export-20260831.xlsx",
+          "size_bytes": 2448937,
+          "sheets": [
+            {
+              "sheet": "Incidents",
+              "state": "visible",
+              "rows": 1657,
+              "columns": 59
+            },
+            {
+              "sheet": "Reports",
+              "state": "visible",
+              "rows": 7682,
+              "columns": 12
+            },
+            {
+              "sheet": "Entities",
+              "state": "visible",
+              "rows": 7141,
+              "columns": 2
+            },
+            {
+              "sheet": "Data Dictionary",
+              "state": "visible",
+              "rows": 61,
+              "columns": 5
+            },
+            {
+              "sheet": "Coverage Map",
+              "state": "visible",
+              "rows": 8,
+              "columns": 4
+            }
+          ]
+        },
+        {
+          "file": "AIID_Excel_Export-20260907.xlsx",
+          "size_bytes": 2468820,
+          "sheets": [
+            {
+              "sheet": "Incidents",
+              "state": "visible",
+              "rows": 1666,
+              "columns": 59
+            },
+            {
+              "sheet": "Reports",
+              "state": "visible",
+              "rows": 7704,
+              "columns": 12
+            },
+            {
+              "sheet": "Entities",
+              "state": "visible",
+              "rows": 7262,
+              "columns": 2
+            },
+            {
+              "sheet": "Data Dictionary",
+              "state": "visible",
+              "rows": 61,
+              "columns": 5
+            },
+            {
+              "sheet": "Coverage Map",
+              "state": "visible",
+              "rows": 8,
+              "columns": 4
+            }
+          ]
+        },
+        {
+          "file": "AIID_Excel_Export-20260914.xlsx",
+          "size_bytes": 2487539,
+          "sheets": [
+            {
+              "sheet": "Incidents",
+              "state": "visible",
+              "rows": 1678,
+              "columns": 59
+            },
+            {
+              "sheet": "Reports",
+              "state": "visible",
+              "rows": 7763,
+              "columns": 12
+            },
+            {
+              "sheet": "Entities",
+              "state": "visible",
+              "rows": 7307,
+              "columns": 2
+            },
+            {
+              "sheet": "Data Dictionary",
+              "state": "visible",
+              "rows": 61,
+              "columns": 5
+            },
+            {
+              "sheet": "Coverage Map",
+              "state": "visible",
+              "rows": 8,
+              "columns": 4
+            }
+          ]
+        },
+        {
+          "file": "AIID_Excel_Export-20260921.xlsx",
+          "size_bytes": 2503484,
+          "sheets": [
+            {
+              "sheet": "Incidents",
+              "state": "visible",
+              "rows": 1692,
+              "columns": 59
+            },
+            {
+              "sheet": "Reports",
+              "state": "visible",
+              "rows": 7793,
+              "columns": 12
+            },
+            {
+              "sheet": "Entities",
+              "state": "visible",
+              "rows": 7343,
+              "columns": 2
+            },
+            {
+              "sheet": "Data Dictionary",
+              "state": "visible",
+              "rows": 61,
+              "columns": 5
+            },
+            {
+              "sheet": "Coverage Map",
+              "state": "visible",
+              "rows": 8,
+              "columns": 4
+            }
+          ]
+        },
+        {
+          "file": "AIID_Excel_Export-20260928.xlsx",
+          "size_bytes": 2516415,
+          "sheets": [
+            {
+              "sheet": "Incidents",
+              "state": "visible",
+              "rows": 1704,
+              "columns": 59
+            },
+            {
+              "sheet": "Reports",
+              "state": "visible",
+              "rows": 7816,
+              "columns": 12
+            },
+            {
+              "sheet": "Entities",
+              "state": "visible",
+              "rows": 7380,
+              "columns": 2
+            },
+            {
+              "sheet": "Data Dictionary",
+              "state": "visible",
+              "rows": 61,
+              "columns": 5
+            },
+            {
+              "sheet": "Coverage Map",
+              "state": "visible",
+              "rows": 8,
+              "columns": 4
+            }
+          ]
+        },
+        {
+          "file": "AIID_Excel_Export-20261005.xlsx",
+          "size_bytes": 2527372,
+          "sheets": [
+            {
+              "sheet": "Incidents",
+              "state": "visible",
+              "rows": 1714,
+              "columns": 59
+            },
+            {
+              "sheet": "Reports",
+              "state": "visible",
+              "rows": 7842,
+              "columns": 12
+            },
+            {
+              "sheet": "Entities",
+              "state": "visible",
+              "rows": 7412,
+              "columns": 2
+            },
+            {
+              "sheet": "Data Dictionary",
+              "state": "visible",
+              "rows": 61,
+              "columns": 5
+            },
+            {
+              "sheet": "Coverage Map",
+              "state": "visible",
+              "rows": 8,
+              "columns": 4
+            }
+          ]
+        },
+        {
+          "file": "AIID_Excel_Export-20261012.xlsx",
+          "size_bytes": 2556570,
+          "sheets": [
+            {
+              "sheet": "Incidents",
+              "state": "visible",
+              "rows": 1737,
+              "columns": 59
+            },
+            {
+              "sheet": "Reports",
+              "state": "visible",
+              "rows": 7922,
+              "columns": 12
+            },
+            {
+              "sheet": "Entities",
+              "state": "visible",
+              "rows": 7467,
+              "columns": 2
+            },
+            {
+              "sheet": "Data Dictionary",
+              "state": "visible",
+              "rows": 61,
+              "columns": 5
+            },
+            {
+              "sheet": "Coverage Map",
+              "state": "visible",
+              "rows": 8,
+              "columns": 4
+            }
+          ]
+        },
+        {
+          "file": "AIID_Excel_Export-20261019.xlsx",
+          "size_bytes": 2573292,
+          "sheets": [
+            {
+              "sheet": "Incidents",
+              "state": "visible",
+              "rows": 1752,
+              "columns": 59
+            },
+            {
+              "sheet": "Reports",
+              "state": "visible",
+              "rows": 7957,
+              "columns": 12
+            },
+            {
+              "sheet": "Entities",
+              "state": "visible",
+              "rows": 7510,
+              "columns": 2
+            },
+            {
+              "sheet": "Data Dictionary",
+              "state": "visible",
+              "rows": 61,
+              "columns": 5
+            },
+            {
+              "sheet": "Coverage Map",
+              "state": "visible",
+              "rows": 8,
+              "columns": 4
+            }
+          ]
+        },
+        {
+          "file": "thai-disinfo-scam-dataset.xlsx",
+          "size_bytes": 7972070,
+          "sheets": [
+            {
+              "sheet": "README",
+              "state": "visible",
+              "rows": 24,
+              "columns": 2
+            },
+            {
+              "sheet": "weekly_panel",
+              "state": "visible",
+              "rows": 410,
+              "columns": 27
+            },
+            {
+              "sheet": "afnc_items",
+              "state": "visible",
+              "rows": 17727,
+              "columns": 18
+            },
+            {
+              "sheet": "acsc_weekly",
+              "state": "visible",
+              "rows": 49,
+              "columns": 18
+            },
+            {
+              "sheet": "data_dictionary",
+              "state": "visible",
+              "rows": 31,
+              "columns": 4
+            }
+          ]
+        }
+      ],
+      "profiles": {
+        "Incidents": [
+          {
+            "column": "Incident ID",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 1749
+          },
+          {
+            "column": "date",
+            "dtype": "datetime64[us]",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 1199
+          },
+          {
+            "column": "year",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 27
+          },
+          {
+            "column": "title",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 1749
+          },
+          {
+            "column": "description",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 1749
+          },
+          {
+            "column": "deployer",
+            "dtype": "str",
+            "missing": 3,
+            "missing_pct": 0.2,
+            "unique": 1278
+          },
+          {
+            "column": "developer",
+            "dtype": "str",
+            "missing": 1,
+            "missing_pct": 0.1,
+            "unique": 718
+          },
+          {
+            "column": "harmed",
+            "dtype": "str",
+            "missing": 2,
+            "missing_pct": 0.1,
+            "unique": 1678
+          },
+          {
+            "column": "Editors",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 23
+          },
+          {
+            "column": "Implicated Systems",
+            "dtype": "str",
+            "missing": 549,
+            "missing_pct": 31.4,
+            "unique": 794
+          },
+          {
+            "column": "Date Modified",
+            "dtype": "datetime64[us]",
+            "missing": 516,
+            "missing_pct": 29.5,
+            "unique": 1157
+          },
+          {
+            "column": "Editor Notes",
+            "dtype": "str",
+            "missing": 1218,
+            "missing_pct": 69.6,
+            "unique": 528
+          },
+          {
+            "column": "Data Sources",
+            "dtype": "str",
+            "missing": 253,
+            "missing_pct": 14.5,
+            "unique": 4
+          },
+          {
+            "column": "report_count",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 45
+          },
+          {
+            "column": "Risk Domain",
+            "dtype": "str",
+            "missing": 253,
+            "missing_pct": 14.5,
+            "unique": 7
+          },
+          {
+            "column": "Risk Subdomain",
+            "dtype": "str",
+            "missing": 254,
+            "missing_pct": 14.5,
+            "unique": 21
+          },
+          {
+            "column": "Responsible Entity",
+            "dtype": "str",
+            "missing": 253,
+            "missing_pct": 14.5,
+            "unique": 3
+          },
+          {
+            "column": "Intent",
+            "dtype": "str",
+            "missing": 253,
+            "missing_pct": 14.5,
+            "unique": 3
+          },
+          {
+            "column": "Timing",
+            "dtype": "str",
+            "missing": 253,
+            "missing_pct": 14.5,
+            "unique": 3
+          },
+          {
+            "column": "AI Goal",
+            "dtype": "str",
+            "missing": 1708,
+            "missing_pct": 97.7,
+            "unique": 31
+          },
+          {
+            "column": "AI Technology",
+            "dtype": "str",
+            "missing": 1723,
+            "missing_pct": 98.5,
+            "unique": 24
+          },
+          {
+            "column": "AI Technology (Potential)",
+            "dtype": "str",
+            "missing": 1720,
+            "missing_pct": 98.3,
+            "unique": 23
+          },
+          {
+            "column": "Technical Failure",
+            "dtype": "str",
+            "missing": 1723,
+            "missing_pct": 98.5,
+            "unique": 23
+          },
+          {
+            "column": "Technical Failure (Potential)",
+            "dtype": "str",
+            "missing": 1713,
+            "missing_pct": 97.9,
+            "unique": 33
+          },
+          {
+            "column": "Harm Domain",
+            "dtype": "str",
+            "missing": 1549,
+            "missing_pct": 88.6,
+            "unique": 3
+          },
+          {
+            "column": "Tangible Harm",
+            "dtype": "str",
+            "missing": 1549,
+            "missing_pct": 88.6,
+            "unique": 5
+          },
+          {
+            "column": "AI Harm Level",
+            "dtype": "str",
+            "missing": 1549,
+            "missing_pct": 88.6,
+            "unique": 5
+          },
+          {
+            "column": "Rights Violation",
+            "dtype": "str",
+            "missing": 1549,
+            "missing_pct": 88.6,
+            "unique": 3
+          },
+          {
+            "column": "Harm Distribution Basis",
+            "dtype": "str",
+            "missing": 1543,
+            "missing_pct": 88.2,
+            "unique": 42
+          },
+          {
+            "column": "Lives Lost",
+            "dtype": "float64",
+            "missing": 1543,
+            "missing_pct": 88.2,
+            "unique": 8
+          },
+          {
+            "column": "Injuries",
+            "dtype": "float64",
+            "missing": 1543,
+            "missing_pct": 88.2,
+            "unique": 9
+          },
+          {
+            "column": "Sector of Deployment",
+            "dtype": "str",
+            "missing": 1543,
+            "missing_pct": 88.2,
+            "unique": 51
+          },
+          {
+            "column": "Public Sector Deployment",
+            "dtype": "str",
+            "missing": 1549,
+            "missing_pct": 88.6,
+            "unique": 3
+          },
+          {
+            "column": "Infrastructure Sectors",
+            "dtype": "str",
+            "missing": 1543,
+            "missing_pct": 88.2,
+            "unique": 14
+          },
+          {
+            "column": "Location Region",
+            "dtype": "str",
+            "missing": 1549,
+            "missing_pct": 88.6,
+            "unique": 7
+          },
+          {
+            "column": "Country Code",
+            "dtype": "str",
+            "missing": 1606,
+            "missing_pct": 91.8,
+            "unique": 27
+          },
+          {
+            "column": "Location City",
+            "dtype": "str",
+            "missing": 1695,
+            "missing_pct": 96.9,
+            "unique": 42
+          },
+          {
+            "column": "Incident Year",
+            "dtype": "float64",
+            "missing": 1549,
+            "missing_pct": 88.6,
+            "unique": 20
+          },
+          {
+            "column": "Incident Month",
+            "dtype": "str",
+            "missing": 1589,
+            "missing_pct": 90.9,
+            "unique": 15
+          },
+          {
+            "column": "Incident Day",
+            "dtype": "str",
+            "missing": 1639,
+            "missing_pct": 93.7,
+            "unique": 31
+          },
+          {
+            "column": "Intentional Harm",
+            "dtype": "str",
+            "missing": 1551,
+            "missing_pct": 88.7,
+            "unique": 4
+          },
+          {
+            "column": "Autonomy Level",
+            "dtype": "str",
+            "missing": 1549,
+            "missing_pct": 88.6,
+            "unique": 4
+          },
+          {
+            "column": "AI Task",
+            "dtype": "str",
+            "missing": 1569,
+            "missing_pct": 89.7,
+            "unique": 139
+          },
+          {
+            "column": "AI Methods",
+            "dtype": "str",
+            "missing": 1646,
+            "missing_pct": 94.1,
+            "unique": 61
+          },
+          {
+            "column": "AI System Description",
+            "dtype": "str",
+            "missing": 1553,
+            "missing_pct": 88.8,
+            "unique": 196
+          },
+          {
+            "column": "Data Inputs",
+            "dtype": "str",
+            "missing": 1556,
+            "missing_pct": 89.0,
+            "unique": 166
+          },
+          {
+            "column": "Involving Minor",
+            "dtype": "str",
+            "missing": 1549,
+            "missing_pct": 88.6,
+            "unique": 3
+          },
+          {
+            "column": "Protected Characteristic",
+            "dtype": "str",
+            "missing": 1549,
+            "missing_pct": 88.6,
+            "unique": 3
+          },
+          {
+            "column": "AI System",
+            "dtype": "str",
+            "missing": 1549,
+            "missing_pct": 88.6,
+            "unique": 3
+          },
+          {
+            "column": "Detrimental Content",
+            "dtype": "str",
+            "missing": 1549,
+            "missing_pct": 88.6,
+            "unique": 3
+          },
+          {
+            "column": "Impact on Critical Services",
+            "dtype": "str",
+            "missing": 1549,
+            "missing_pct": 88.6,
+            "unique": 3
+          },
+          {
+            "column": "Multiple AI Interaction",
+            "dtype": "str",
+            "missing": 1549,
+            "missing_pct": 88.6,
+            "unique": 3
+          },
+          {
+            "column": "Embedded",
+            "dtype": "str",
+            "missing": 1549,
+            "missing_pct": 88.6,
+            "unique": 3
+          },
+          {
+            "column": "Entities",
+            "dtype": "str",
+            "missing": 1549,
+            "missing_pct": 88.6,
+            "unique": 200
+          },
+          {
+            "column": "Physical Objects",
+            "dtype": "str",
+            "missing": 1549,
+            "missing_pct": 88.6,
+            "unique": 3
+          },
+          {
+            "column": "Deployed",
+            "dtype": "str",
+            "missing": 1549,
+            "missing_pct": 88.6,
+            "unique": 3
+          },
+          {
+            "column": "Estimated Date",
+            "dtype": "float64",
+            "missing": 1542,
+            "missing_pct": 88.2,
+            "unique": 2
+          },
+          {
+            "column": "Estimated Harm Quantities",
+            "dtype": "float64",
+            "missing": 1542,
+            "missing_pct": 88.2,
+            "unique": 2
+          },
+          {
+            "column": "Special Interest Intangible Harm",
+            "dtype": "str",
+            "missing": 1549,
+            "missing_pct": 88.6,
+            "unique": 3
+          }
+        ],
+        "afnc_items": [
+          {
+            "column": "post_id",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 17726
+          },
+          {
+            "column": "published_bkk",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 17725
+          },
+          {
+            "column": "date",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 2535
+          },
+          {
+            "column": "week_start",
+            "dtype": "datetime64[us]",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 383
+          },
+          {
+            "column": "year",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 8
+          },
+          {
+            "column": "month",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 93
+          },
+          {
+            "column": "item_type",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 7
+          },
+          {
+            "column": "verdict_th",
+            "dtype": "str",
+            "missing": 3268,
+            "missing_pct": 18.4,
+            "unique": 3
+          },
+          {
+            "column": "verdict_en",
+            "dtype": "str",
+            "missing": 3268,
+            "missing_pct": 18.4,
+            "unique": 3
+          },
+          {
+            "column": "verdict_source",
+            "dtype": "str",
+            "missing": 3268,
+            "missing_pct": 18.4,
+            "unique": 2
+          },
+          {
+            "column": "category_th",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 12
+          },
+          {
+            "column": "category_en",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 12
+          },
+          {
+            "column": "checked_by_agency",
+            "dtype": "str",
+            "missing": 3641,
+            "missing_pct": 20.5,
+            "unique": 1335
+          },
+          {
+            "column": "title",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 16704
+          },
+          {
+            "column": "content",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 17610
+          },
+          {
+            "column": "topic_tags",
+            "dtype": "str",
+            "missing": 640,
+            "missing_pct": 3.6,
+            "unique": 15303
+          },
+          {
+            "column": "view_count",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 3759
+          },
+          {
+            "column": "url",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 17726
+          }
+        ],
+        "acsc_weekly": [
+          {
+            "column": "week_start",
+            "dtype": "datetime64[us]",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 48
+          },
+          {
+            "column": "week_end",
+            "dtype": "datetime64[us]",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 48
+          },
+          {
+            "column": "days",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 2
+          },
+          {
+            "column": "cases",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 48
+          },
+          {
+            "column": "loss_baht",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 47
+          },
+          {
+            "column": "loss_precision",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 2
+          },
+          {
+            "column": "loss_per_case_baht",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 48
+          },
+          {
+            "column": "cases_change_vs_prev_week",
+            "dtype": "float64",
+            "missing": 2,
+            "missing_pct": 4.2,
+            "unique": 45
+          },
+          {
+            "column": "loss_change_vs_prev_week_baht",
+            "dtype": "float64",
+            "missing": 2,
+            "missing_pct": 4.2,
+            "unique": 46
+          },
+          {
+            "column": "top_type_th",
+            "dtype": "str",
+            "missing": 2,
+            "missing_pct": 4.2,
+            "unique": 8
+          },
+          {
+            "column": "top_type_case_share_pct",
+            "dtype": "float64",
+            "missing": 11,
+            "missing_pct": 22.9,
+            "unique": 32
+          },
+          {
+            "column": "highest_loss_type_th",
+            "dtype": "str",
+            "missing": 3,
+            "missing_pct": 6.2,
+            "unique": 15
+          },
+          {
+            "column": "highest_loss_type_loss_baht",
+            "dtype": "float64",
+            "missing": 21,
+            "missing_pct": 43.8,
+            "unique": 27
+          },
+          {
+            "column": "flag",
+            "dtype": "str",
+            "missing": 44,
+            "missing_pct": 91.7,
+            "unique": 4
+          },
+          {
+            "column": "publisher",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 21
+          },
+          {
+            "column": "article_date",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 48
+          },
+          {
+            "column": "source_url",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 48
+          },
+          {
+            "column": "notes",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 48
+          }
+        ],
+        "weekly_panel": [
+          {
+            "column": "week_start",
+            "dtype": "datetime64[us]",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 409
+          },
+          {
+            "column": "week_end",
+            "dtype": "datetime64[us]",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 409
+          },
+          {
+            "column": "year",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 9
+          },
+          {
+            "column": "month",
+            "dtype": "str",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 95
+          },
+          {
+            "column": "afnc_verdicts",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 56
+          },
+          {
+            "column": "afnc_fake",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 43
+          },
+          {
+            "column": "afnc_distorted",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 16
+          },
+          {
+            "column": "afnc_true",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 26
+          },
+          {
+            "column": "afnc_false_share_pct",
+            "dtype": "float64",
+            "missing": 27,
+            "missing_pct": 6.6,
+            "unique": 126
+          },
+          {
+            "column": "afnc_false_gov_policy",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 28
+          },
+          {
+            "column": "afnc_false_health",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 26
+          },
+          {
+            "column": "afnc_false_finance",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 21
+          },
+          {
+            "column": "afnc_false_disaster",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 12
+          },
+          {
+            "column": "afnc_false_security",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 16
+          },
+          {
+            "column": "afnc_false_other",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 15
+          },
+          {
+            "column": "afnc_online_crime_advisories",
+            "dtype": "int64",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 5
+          },
+          {
+            "column": "acsc_reported",
+            "dtype": "bool",
+            "missing": 0,
+            "missing_pct": 0.0,
+            "unique": 2
+          },
+          {
+            "column": "acsc_cases",
+            "dtype": "float64",
+            "missing": 361,
+            "missing_pct": 88.3,
+            "unique": 48
+          },
+          {
+            "column": "acsc_loss_baht",
+            "dtype": "float64",
+            "missing": 361,
+            "missing_pct": 88.3,
+            "unique": 47
+          },
+          {
+            "column": "acsc_loss_precision",
+            "dtype": "str",
+            "missing": 361,
+            "missing_pct": 88.3,
+            "unique": 2
+          },
+          {
+            "column": "acsc_loss_per_case_baht",
+            "dtype": "float64",
+            "missing": 361,
+            "missing_pct": 88.3,
+            "unique": 48
+          },
+          {
+            "column": "acsc_top_type_th",
+            "dtype": "str",
+            "missing": 363,
+            "missing_pct": 88.8,
+            "unique": 8
+          },
+          {
+            "column": "acsc_top_type_case_share_pct",
+            "dtype": "float64",
+            "missing": 372,
+            "missing_pct": 91.0,
+            "unique": 32
+          },
+          {
+            "column": "acsc_highest_loss_type_th",
+            "dtype": "str",
+            "missing": 364,
+            "missing_pct": 89.0,
+            "unique": 15
+          },
+          {
+            "column": "acsc_highest_loss_type_loss_baht",
+            "dtype": "float64",
+            "missing": 382,
+            "missing_pct": 93.4,
+            "unique": 27
+          },
+          {
+            "column": "acsc_flag",
+            "dtype": "str",
+            "missing": 405,
+            "missing_pct": 99.0,
+            "unique": 4
+          },
+          {
+            "column": "acsc_source_url",
+            "dtype": "str",
+            "missing": 361,
+            "missing_pct": 88.3,
+            "unique": 48
+          }
+        ]
+      },
+      "source_readme": [
+        "Thai Disinformation & Online Scam Weekly Dataset",
+        "Compiled 1 November 2026. Weekly panel 2018-12-30 to 2026-10-31.",
+        "What is in it",
+        "weekly_panel 409 weeks (Sunday–Saturday). AFNC verdict counts for every week; ACSC scam cases and losses for the 48 weeks with a published figure (2025-11-09 to 2026-10-24).",
+        "afnc_items 17,726 Anti-Fake News Center posts, one row per post, including 14,458 verdicts.",
+        "acsc_weekly 48 ACSC weekly briefings with source articles.",
+        "data_dictionary Every column explained.",
+        "Sources",
+        "Anti-Fake News Center Thailand (Ministry of Digital Economy and Society) Official open-data export at opendata.antifakenewscenter.com, downloaded 1 Nov 2026. No licence is stated on the portal.",
+        "Anti Online Scam Operation Center (ACSC), Royal Thai Police Weekly briefings on cases filed via Thaipoliceonline, compiled from Thai news reports and the Royal Thai Police press-release site (saranitet.police.go.th), one URL per row. Not published as open data. The centre was renamed ศตฉอ.ตร. in October 2026.",
+        "Things to know before analysing",
+        "1 AFNC counts are verdicts the centre chose to publish, not the amount of fake news circulating.",
+        "2 ACSC figures are reported cases, which undercount scams. Some losses are rounded in the news; see acsc_loss_precision.",
+        "3 Weeks without an ACSC figure are blank, not zero. Do not fill them with 0.",
+        "4 2019 is sparse: the AFNC opened on 1 Nov 2019, and earlier posts are few.",
+        "5 view_count is a snapshot taken on 1 Nov 2026, so older posts have had longer to collect views.",
+        "6 Dates are Gregorian (CE). The source data used Buddhist Era dates (BE = CE + 543).",
+        "7 ACSC weekly briefings began with the week of 9-15 Nov 2025. Weeks with no figure found: 14-20 Jun 2026 and 26 Jul-1 Aug 2026. 25-31 Oct 2026 had not been announced when this was compiled.",
+        "8 16-22 Aug 2026 is flagged: the published 79,311 cases and 2,775 million baht look like an error in the release. Exclude it or show it with a note.",
+        "9 From 9-15 Aug 2026 the news gave losses rounded to the million; earlier weeks are exact to the baht.",
+        "10 The briefings' stated 'change vs last week' often differs from the gap between consecutive weekly totals, because ACSC compares against revised figures. acsc_weekly keeps the stated changes; recompute changes from the totals for charts."
+      ]
+    },
+    "ai": {
+      "snapshot_count": 12,
+      "rows_if_snapshots_were_wrongly_summed": 20070,
+      "ids_removed_between_snapshots": 0,
+      "source_file": "AIID_Excel_Export-20261019.xlsx",
+      "file_named_in_docs": "AIID_Excel_Export-20261026.xlsx",
+      "file_named_in_docs_exists": false,
+      "incident_id_nulls": 0,
+      "incident_id_duplicates": 0,
+      "unused_incident_ids": [
+        88,
+        90,
+        130,
+        237,
+        247,
+        269,
+        338,
+        342,
+        365,
+        442,
+        512,
+        542,
+        637
+      ],
+      "unparseable_dates": 0,
+      "year_disagrees_with_date": 0,
+      "date_min": "1983-09-26",
+      "date_max": "2026-10-07",
+      "rows_clean": 1749,
+      "without_risk_domain": 253,
+      "without_risk_subdomain": 254,
+      "without_location_region": 1549,
+      "without_harm_domain": 1549,
+      "casualty_coded": 206,
+      "casualty_positive": 21,
+      "last_year_with_region": 2023,
+      "thai_country_code_rows": 0,
+      "largest_injury_values_kept": [
+        {
+          "incident_id": 125,
+          "injuries": 55000,
+          "title": "Amazon’s Robotic Fulfillment Centers Have Higher Serious Injury Rates"
+        },
+        {
+          "incident_id": 5,
+          "injuries": 1391,
+          "title": "Collection of Robotic Surgery Malfunctions"
+        },
+        {
+          "incident_id": 476,
+          "injuries": 416,
+          "title": "YouTube Recommendations Allegedly Promoted Radicalizing Material Contributing to Terrorist Acts"
+        }
+      ]
+    },
+    "afnc": {
+      "post_id_nulls": 0,
+      "post_id_duplicates": 0,
+      "unparseable_dates": 0,
+      "date_disagrees_with_published": 0,
+      "week_start_disagrees_with_date": 0,
+      "week_start_not_sunday": 0,
+      "date_min": "2019-01-05",
+      "date_max": "2026-10-31",
+      "unexpected_verdict_values": [],
+      "invalid_view_counts": 0,
+      "view_count_max": 595030,
+      "same_title_reposts_kept": 1056,
+      "rows_clean": 17726,
+      "finance_core_rows": 2514,
+      "finance_extended_rows": 2943,
+      "finance_extended_by_field": {
+        "none": 14783,
+        "category": 2514,
+        "title": 391,
+        "tags": 38
+      },
+      "content_only_hits_not_counted": 1310,
+      "verdict_counts": {
+        "Fake": 9520,
+        "True": 3503,
+        "Unverified": 3268,
+        "Distorted": 1435
+      },
+      "content_max_length_in_workbook": 500
+    },
+    "acsc": {
+      "week_end_not_saturday": 0,
+      "weeks_realigned_to_sunday": [
+        {
+          "raw": "2026-05-30",
+          "aligned": "2026-05-31",
+          "days": 8
+        }
+      ],
+      "week_key_duplicates": 0,
+      "negative_cases": 0,
+      "negative_loss": 0,
+      "zero_case_weeks": 0,
+      "missing_cases": 0,
+      "missing_loss": 0,
+      "loss_per_case_disagrees_with_recomputed": 0,
+      "loss_precision_counts": {
+        "exact": 37,
+        "rounded": 11
+      },
+      "quality_status_counts": {
+        "ok": 44,
+        "rounded_case_count": 1,
+        "eight_day_period": 1,
+        "suspect": 1,
+        "comparison_note": 1
+      },
+      "week_min": "2025-11-09",
+      "week_max": "2026-10-18",
+      "rows_clean": 48
+    },
+    "panel": {
+      "rows": 409,
+      "week_start_duplicates": 0,
+      "week_start_not_sunday": 0,
+      "weeks_not_consecutive": 0,
+      "week_min": "2018-12-30",
+      "week_max": "2026-10-25",
+      "acsc_reported_weeks": 48
+    },
+    "integration": {
+      "spine_weeks": 409,
+      "panel_weeks": 409,
+      "acsc_weeks_matched": 48,
+      "acsc_rows": 48,
+      "acsc_rows_unmatched": 0,
+      "reporting_status_counts": {
+        "before_acsc_briefings": 358,
+        "reported": 48,
+        "no_figure_found": 2,
+        "not_yet_announced": 1
+      },
+      "weeks_without_figure_in_window": [
+        "2026-06-14",
+        "2026-07-26",
+        "2026-10-25"
+      ],
+      "panel_cell_differences": 0,
+      "panel_join_counts": {
+        "both": 409,
+        "left_only": 0,
+        "right_only": 0
+      },
+      "matched_if_raw_week_start_were_used": 47,
+      "online_crime_verdict_first_month": "2026-01",
+      "online_crime_verdicts_by_month": {
+        "2026-01": 1,
+        "2026-02": 45,
+        "2026-03": 31,
+        "2026-04": 51,
+        "2026-05": 32,
+        "2026-06": 30,
+        "2026-07": 37,
+        "2026-08": 37,
+        "2026-09": 45,
+        "2026-10": 46
+      },
+      "core_finance_by_month_2025_11_on": {
+        "2025-11": 49,
+        "2025-12": 45,
+        "2026-01": 57,
+        "2026-02": 31,
+        "2026-03": 22,
+        "2026-04": 21,
+        "2026-05": 13,
+        "2026-06": 2,
+        "2026-07": 2,
+        "2026-08": 1,
+        "2026-09": 1
+      }
+    },
+    "validation": {
+      "results": [
+        {
+          "check": "Incident ID ไม่ซ้ำ",
+          "passed": true
+        },
+        {
+          "check": "post_id ไม่ซ้ำ",
+          "passed": true
+        },
+        {
+          "check": "วันที่เหตุการณ์ AI แปลงได้ทุกแถว",
+          "passed": true
+        },
+        {
+          "check": "วันที่โพสต์ AFNC แปลงได้ทุกแถว",
+          "passed": true
+        },
+        {
+          "check": "week_start ของ AFNC เป็นวันอาทิตย์ทุกแถว",
+          "passed": true
+        },
+        {
+          "check": "week_start ของ ACSC เป็นวันอาทิตย์หลังจัดแนว",
+          "passed": true
+        },
+        {
+          "check": "week_start ของ panel ไม่ซ้ำ",
+          "passed": true
+        },
+        {
+          "check": "ACSC ทุกแถวจับคู่กับ panel ได้",
+          "passed": true
+        },
+        {
+          "check": "สัปดาห์ที่ไม่รายงานไม่มีค่าคดี",
+          "passed": true
+        },
+        {
+          "check": "สัปดาห์ที่ไม่รายงานไม่มีค่าความเสียหาย",
+          "passed": true
+        },
+        {
+          "check": "ไม่มีจำนวนคดีหรือความเสียหายติดลบ",
+          "passed": true
+        },
+        {
+          "check": "ไม่มีการแปลงค่าว่างเป็นศูนย์ในผู้บาดเจ็บ",
+          "passed": true
+        },
+        {
+          "check": "คงสัปดาห์น่าสงสัยไว้พร้อมธง",
+          "passed": true
+        },
+        {
+          "check": "ข่าวการเงินหมวดหลักเป็นส่วนย่อยของขอบเขตขยาย",
+          "passed": true
+        },
+        {
+          "check": "นับข่าวเท็จหมวดหลักตรงกับผลรวมรายสัปดาห์",
+          "passed": true
+        }
+      ]
+    }
+  }
+}
