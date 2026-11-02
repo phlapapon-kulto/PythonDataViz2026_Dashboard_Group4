@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-02 11:22:49",
+  "timestamp": "2026-11-02 11:25:45",
   "offline": {
     "env": "Standalone Offline (file://)",
     "url": "file:///C:/Users/USER/PythonDataViz2026_Dashboard_Group4/index.html",
@@ -275,7 +275,7 @@
       {
         "name": "Tab 3 Outlier Sensitivity Pearson Toggle (All: r=-0.0903 vs Clean: r=+0.5377)",
         "passed": true,
-        "details": "{'allWeeks': {'r': '-0.0903', 'p': 'p-value: 0.9716 (N = 48)', 'badge': 'ไม่มีนัยสำคัญ', 'avgCases': '7,946 คดี'}, 'cleanWeeks': {'r': '+0.5377', 'p': 'p-value: 0.0772 (N = 47)', 'badge': 'ไม่มีนัยสำคัญ', 'avgCases': '6,427 คดี'}}"
+        "details": "{'allWeeks': {'r': '-0.0903', 'p': 'p-value: 0.5409 (N = 48)', 'badge': 'ไม่มีนัยสำคัญ', 'avgCases': '7,946 คดี'}, 'cleanWeeks': {'r': '+0.5377', 'p': 'p-value: 0.0000 (N = 47)', 'badge': 'มีนัยสำคัญ (p < 0.05)', 'avgCases': '6,427 คดี'}}"
       },
       {
         "name": "All 11 Dashboard Charts Initialized & Active in Browser",
