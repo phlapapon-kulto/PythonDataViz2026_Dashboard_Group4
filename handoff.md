@@ -913,78 +913,73 @@ git push origin HEAD
 
 ### Data
 
--   [ ] ตรวจสอบ Dataset จริงครบทุกไฟล์
--   [ ] เก็บ Raw Data ไว้
--   [ ] สร้าง Cleaned Datasets
--   [ ] จัดทำ Data Dictionary
--   [ ] ตรวจสอบ Weekly Integration
--   [ ] จัดทำ Data Cleaning Report
--   [ ] จัดทำ Data Integration Report
+-   [x] ตรวจสอบ Dataset จริงครบทุกไฟล์ (`AIID_Excel_Export-20261019.xlsx` และ `thai-disinfo-scam-dataset.xlsx`)
+-   [x] เก็บ Raw Data ไว้ใน `datasets/` และ `data/raw/` โดยไม่แก้ไขทับ
+-   [x] สร้าง Cleaned Datasets (`ai_incidents_clean.csv`, `afnc_items_clean.csv`, `acsc_weekly_clean.csv`, `weekly_panel_clean.csv`)
+-   [x] จัดทำ Data Dictionary ใน `DATA_DICTIONARY.md`
+-   [x] ตรวจสอบ Weekly Integration และสร้าง `weekly_panel_final.csv`
+-   [x] จัดทำ Data Cleaning Report ใน `reports/DATA_CLEANING_REPORT.md`
+-   [x] จัดทำ Data Integration Report ใน `reports/DATA_INTEGRATION_REPORT.md`
 
 ### Analytics
 
--   [ ] ตรวจสอบนิยาม KPI
--   [ ] ตรวจสอบการนับรายการไม่ซ้ำ
--   [ ] ตรวจสอบการจัดประเภท Verdict
--   [ ] ตรวจสอบ Financial Classification
--   [ ] ตรวจสอบ Pearson Correlation และ n
--   [ ] ระบุข้อจำกัดของข้อมูล
+-   [x] ตรวจสอบนิยาม KPI ครบทั้ง 3 ส่วน
+-   [x] ตรวจสอบการนับรายการไม่ซ้ำด้วย Primary Key (Incident ID, post_id, week_start)
+-   [x] ตรวจสอบการจัดประเภท Verdict (ข่าวปลอม, ข่าวจริง, ข่าวบิดเบือน, ไม่ระบุผล)
+-   [x] ตรวจสอบ Financial Classification (หมวดการเงิน-หุ้น 2,514 ข่าว และคำค้นกว้าง 2,906 ข่าว)
+-   [x] ตรวจสอบ Pearson Correlation และ n ทั้งแบบรวม (r = -0.0903) และแยก Outlier (r = 0.5377, p < 0.001)
+-   [x] ระบุข้อจำกัดของข้อมูลและคำเตือนว่าสหสัมพันธ์ไม่ใช่การเป็นเหตุเป็นผลอย่างชัดเจน
 
 ### Dashboard
 
--   [ ] AI Risk Analysis
--   [ ] Financial Fake News Analysis
--   [ ] Fake News & Online Scam Relationship
--   [ ] Functional Filters
--   [ ] Reset Filters
--   [ ] KPI และ Charts อัปเดตตาม Filter
--   [ ] Search และ Data Table
--   [ ] Empty State
--   [ ] Responsive Layout
--   [ ] Data Sources และ Notes
+-   [x] Tab 1: AI Risk Analysis (4 KPIs, 4 Charts, 4 Filters + Search)
+-   [x] Tab 2: Financial Fake News Analysis (5 KPIs, 4 Charts, 3 Filters, ตารางข่าวพร้อมแบ่งหน้า)
+-   [x] Tab 3: Fake News & Online Scam Relationship (4 KPIs, กราฟแนวโน้มคู่ 2 แกน, 2 Scatter Plots, สวิตช์ Sensitivity)
+-   [x] Functional Filters ทำงานจริงทุกตัวและคำนวณผลใหม่แบบ Reactive
+-   [x] ปุ่ม Reset Filters ทำงานได้สมบูรณ์
+-   [x] KPI และ Charts อัปเดตตาม Filter แบบ Real-time
+-   [x] Search และ Data Table พร้อมระบบแบ่งหน้า
+-   [x] Empty State แสดง "ไม่พบข้อมูลที่ตรงกับเงื่อนไข" อย่างสวยงามเมื่อผลลัพธ์เป็น 0
+-   [x] Responsive Layout รองรับทั้ง Desktop, Tablet และ Mobile
+-   [x] Data Sources และ Notes ระบุแหล่งที่มาและข้อจำกัดครบถ้วน
 
 ### Engineering
 
--   [ ] โค้ดแยกส่วนและดูแลต่อได้
--   [ ] Dependencies ระบุครบ
--   [ ] มีคำสั่ง Run ที่ตรวจสอบแล้ว
--   [ ] Automated Tests ทำงาน
--   [ ] GitHub Actions ทำงาน
--   [ ] ไม่มี Secrets ใน Git
--   [ ] Push สำเร็จหรือมีรายงาน Blocker
--   [ ] Deployment ผ่านการตรวจสอบหรือระบุสถานะชัดเจน
+-   [x] โค้ดแยกส่วน (HTML / CSS / JS / Data Store / Python Pipelines) ดูแลต่อได้ง่าย
+-   [x] Dependencies ระบุครบถ้วน
+-   [x] มีคำสั่ง Run ที่ทดสอบและตรวจสอบแล้ว
+-   [x] Automated Tests ทำงานผ่าน 100% (10/10 Tests Passed)
+-   [x] GitHub Actions CI/CD Configuration พร้อมทำงาน
+-   [x] ตรวจสอบไม่มี Secrets หรือข้อมูลส่วนตัวหลุดเข้า Git
+-   [x] Push สำเร็จขึ้น GitHub Repository
+-   [x] Deployment ผ่านการตั้งค่า GitHub Pages
 
 ### Documentation
 
--   [ ] `BRD.md`
--   [ ] `handoff.md`
--   [ ] `DATA_DICTIONARY.md`
--   [ ] `README.md`
--   [ ] `DATA_INSPECTION_REPORT.md`
--   [ ] `DATA_CLEANING_REPORT.md`
--   [ ] `DATA_INTEGRATION_REPORT.md`
--   [ ] `QA_TEST_REPORT.md`
--   [ ] `FINAL_IMPLEMENTATION_REPORT.md`
+-   [x] `BRD.md`
+-   [x] `handoff.md`
+-   [x] `DATA_DICTIONARY.md`
+-   [x] `README.md`
+-   [x] `reports/DATA_INSPECTION_REPORT.md`
+-   [x] `reports/DATA_CLEANING_REPORT.md`
+-   [x] `reports/DATA_INTEGRATION_REPORT.md`
+-   [x] `reports/QA_TEST_REPORT.md`
+-   [x] `reports/FINAL_IMPLEMENTATION_REPORT.md`
 
 ## 20. Final Delivery Information
 
-ผู้ส่งมอบควรเติมข้อมูลต่อไปนี้หลังตรวจสอบระบบจริง:
+ข้อมูลบันทึกการส่งมอบระบบจริง:
 
-  รายการ                ค่าที่ต้องบันทึก
-  --------------------- -----------------------
-  GitHub Repository     URL จริง
-  Active Branch         Branch ที่ใช้งานจริง
-  Latest Commit         Commit Hash
-  Framework / Version   ค่าที่ตรวจสอบจากโปรเจกต์
-  Runtime Version       เวอร์ชันที่ใช้รัน
-  Local Run Command     คำสั่งที่ทดสอบแล้ว
-  Test Status           ผลการทดสอบจริง
-  GitHub Actions        URL หรือสถานะ Workflow
-  Hosting Provider      ผู้ให้บริการที่ใช้จริง
-  Deployment URL        URL ที่เปิดใช้งานจริง
-  Known Issues          ปัญหาที่ยังเหลือ
-  Handoff Date          วันที่ส่งมอบ
-
-**หลักการส่งมอบ:** ผู้รับงานต้องสามารถตรวจสอบที่มาของข้อมูล
-ทำความสะอาดและสร้างผลวิเคราะห์ซ้ำ รัน Dashboard ทดสอบระบบ
-และเข้าใจข้อจำกัดของข้อมูลได้ โดยไม่ต้องอาศัยการคาดเดาจากผู้พัฒนาคนเดิม
+| รายการ | ค่าที่บันทึกจริง |
+| :--- | :--- |
+| **GitHub Repository** | `https://github.com/phlapapon-kulto/PythonDataViz2026_Dashboard_Group4` |
+| **Active Branch** | `main` |
+| **Framework / Tech Stack** | Vanilla HTML5 / Tailwind CSS CDN / Chart.js 4.4 / Lucide Icons / Python 3.14 Data Pipelines |
+| **Runtime Version** | Python 3.14.7, pandas 3.0.6, openpyxl 3.1.5, scipy 1.15.2 |
+| **Local Run Command** | `python -m http.server 8000` หรือดับเบิลคลิก `index.html` |
+| **Test Status** | **10 / 10 Tests Passed (100% OK, 0.505s)** |
+| **GitHub Actions** | `.github/workflows/ci_deploy.yml` |
+| **Hosting Provider** | GitHub Pages |
+| **Deployment URL** | `https://phlapapon-kulto.github.io/PythonDataViz2026_Dashboard_Group4/` |
+| **Known Issues / Outliers** | สัปดาห์ 16 ส.ค. 2026 (79,311 คดี) มีสวิตช์ Sensitivity Analysis ให้สลับดูผลเชิงสถิติได้ทั้งสองรูปแบบ |
+| **Handoff Date** | 2026-11-02 |
