@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ภัยดิจิทัลยุค AI: วิเคราะห์ความเสี่ยงจากปัญญาประดิษฐ์ ข่าวปลอม และการหลอกลวงออนไลน์</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cyber: {
+              blue: '#2391FF',
+              yellow: '#FFF83F',
+              orange: '#FFCD54',
+              pink: '#F70063',
+              dark: '#202938',
+              bg: '#F8FAFC'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Prompt & IBM Plex Sans Thai -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Chart.js & Plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-slate-900 text-slate-200 text-xs py-1.5 px-4 flex justify-between items-center border-b border-slate-800">
+    <div class="flex items-center gap-2">
+      <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-cyber-blue/20 text-cyber-blue border border-cyber-blue/30">
+        LIVE INTELLIGENCE
+      </span>
+      <span>โครงการวิเคราะห์ความเสี่ยงภัยดิจิทัลและข่าวปลอมยุค AI (Python DataViz 2026 - Group 4)</span>
+    </div>
+    <div class="hidden md:flex items-center gap-4 text-slate-400 text-[11px]">
+      <span>ฐานข้อมูล AIID: 1,749 เหตุการณ์</span>
+      <span>•</span>
+      <span>ฐานข้อมูล AFNC: 17,726 ข่าว</span>
+      <span>•</span>
+      <span>ฐานข้อมูล ACSC: 48 สัปดาห์</span>
+    </div>
+  </div>
+
+  <div class="flex flex-1 overflow-hidden">
+    <!-- Desktop Sidebar -->
+    <aside class="hidden lg:flex flex-col w-72 bg-white border-r border-slate-200 shadow-sm z-20">
+      <!-- Brand Header -->
+      <div class="p-6 border-b border-slate-100 flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyber-blue to-cyber-pink flex items-center justify-center text-white shadow-md">
+          <i data-lucide="shield-alert" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h1 class="text-sm font-bold text-slate-900 leading-tight">AI & Digital Threat</h1>
+          <p class="text-[11px] text-slate-500 font-medium">Intelligence Dashboard</p>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="flex-1 p-4 space-y-1.5">
+        <div class="px-3 pb-2 text-[10px] font-bold text-slate-400 uppercase tracking-wider">แดชบอร์ดหลัก</div>
+        
+        <button onclick="switchTab('tab1')" id="nav-tab1" class="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 transition-all nav-item-active">
+          <i data-lucide="cpu" class="w-4 h-4 text-cyber-blue"></i>
+          <span class="text-left flex-1">1. AI Risk Analysis</span>
+        </button>
+
+        <button onclick="switchTab('tab2')" id="nav-tab2" class="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 transition-all">
+          <i data-lucide="newspaper" class="w-4 h-4 text-cyber-pink"></i>
+          <span class="text-left flex-1">2. Financial Fake News</span>
+        </button>
+
+        <button onclick="switchTab('tab3')" id="nav-tab3" class="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50 transition-all">
+          <i data-lucide="line-chart" class="w-4 h-4 text-cyber-orange"></i>
+          <span class="text-left flex-1">3. Fake News vs Scam</span>
+        </button>
+
+        <div class="pt-6 px-3 pb-2 text-[10px] font-bold text-slate-400 uppercase tracking-wider">ข้อมูลและเอกสาร</div>
+        <a href="reports/DATA_INSPECTION_REPORT.md" target="_blank" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-medium text-slate-500 hover:bg-slate-50 transition-all">
+          <i data-lucide="file-search" class="w-4 h-4 text-slate-400"></i>
+          <span>Data Inspection Report</span>
+        </a>
+        <a href="reports/DATA_CLEANING_REPORT.md" target="_blank" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-medium text-slate-500 hover:bg-slate-50 transition-all">
+          <i data-lucide="file-check-2" class="w-4 h-4 text-slate-400"></i>
+          <span>Data Cleaning Report</span>
+        </a>
+        <a href="reports/DATA_INTEGRATION_REPORT.md" target="_blank" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-medium text-slate-500 hover:bg-slate-50 transition-all">
+          <i data-lucide="layers" class="w-4 h-4 text-slate-400"></i>
+          <span>Data Integration Report</span>
+        </a>
+        <a href="DATA_DICTIONARY.md" target="_blank" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-medium text-slate-500 hover:bg-slate-50 transition-all">
+          <i data-lucide="book-open" class="w-4 h-4 text-slate-400"></i>
+          <span>Data Dictionary</span>
+        </a>
+      </nav>
+
+      <!-- System Status Footer -->
+      <div class="p-4 border-t border-slate-100 bg-slate-50/50">
+        <div class="bg-white p-3 rounded-lg border border-slate-200 text-xs">
+          <div class="flex items-center justify-between mb-1">
+            <span class="font-medium text-slate-700">Production Mode</span>
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          </div>
+          <p class="text-[11px] text-slate-500">ขับเคลื่อนด้วยชุดข้อมูลจริง 100%</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 flex flex-col h-screen overflow-y-auto bg-slate-50">
+      
+      <!-- Sticky Header -->
+      <header class="glass-header sticky top-0 z-10 border-b border-slate-200 px-6 py-4 flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+        <div>
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-0.5">
+            <span>หน้าหลัก</span>
+            <i data-lucide="chevron-right" class="w-3 h-3"></i>
+            <span id="breadcrumb-title" class="text-cyber-blue font-medium">AI Risk Analysis</span>
+          </div>
+          <h2 id="header-title" class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">
+            ภัยดิจิทัลยุค AI: วิเคราะห์ความเสี่ยงจากปัญญาประดิษฐ์
+          </h2>
+        </div>
+
+        <!-- Mobile Tab Switcher -->
+        <div class="flex lg:hidden bg-slate-100 p-1 rounded-xl gap-1">
+          <button onclick="switchTab('tab1')" id="m-nav-tab1" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white text-cyber-blue shadow-sm">AI Risks</button>
+          <button onclick="switchTab('tab2')" id="m-nav-tab2" class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600">Fake News</button>
+          <button onclick="switchTab('tab3')" id="m-nav-tab3" class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600">Scams</button>
+        </div>
+      </header>
+
+      <!-- Tab Contents -->
+      <div class="p-6 space-y-6 max-w-7xl mx-auto w-full">
+
+        <!-- ======================================================= -->
+        <!-- TAB 1: AI RISK ANALYSIS -->
+        <!-- ======================================================= -->
+        <section id="tab1-content" class="space-y-6">
+          <!-- KPI Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="cyber-card p-5 kpi-accent-blue">
+              <div class="flex justify-between items-start">
+                <div>
+                  <p class="text-xs font-medium text-slate-500 mb-1">เหตุการณ์ความเสี่ยง AI ทั้งหมด</p>
+                  <h3 id="tab1-kpi-total" class="text-2xl font-bold text-slate-900">1,749</h3>
+                  <p class="text-[11px] text-slate-400 mt-1">Unique Incident ID</p>
+                </div>
+                <div class="w-9 h-9 rounded-lg bg-blue-50 text-cyber-blue flex items-center justify-center">
+                  <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="cyber-card p-5 kpi-accent-pink">
+              <div class="flex justify-between items-start">
+                <div>
+                  <p class="text-xs font-medium text-slate-500 mb-1">มีผู้บาดเจ็บหรือเสียชีวิต</p>
+                  <h3 id="tab1-kpi-casualties" class="text-2xl font-bold text-cyber-pink">21</h3>
+                  <p class="text-[11px] text-slate-400 mt-1">Injuries > 0 หรือ Lives Lost > 0</p>
+                </div>
+                <div class="w-9 h-9 rounded-lg bg-pink-50 text-cyber-pink flex items-center justify-center">
+                  <i data-lucide="heart-crack" class="w-5 h-5"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="cyber-card p-5 kpi-accent-orange">
+              <div class="flex justify-between items-start">
+                <div>
+                  <p class="text-xs font-medium text-slate-500 mb-1">อัตราเติบโตเหตุการณ์ (YoY ล่าสุด)</p>
+                  <h3 id="tab1-kpi-growth" class="text-2xl font-bold text-amber-500">+18.4%</h3>
+                  <p class="text-[11px] text-slate-400 mt-1">เทียบปีก่อนหน้า</p>
+                </div>
+                <div class="w-9 h-9 rounded-lg bg-amber-50 text-amber-500 flex items-center justify-center">
+                  <i data-lucide="trending-up" class="w-5 h-5"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="cyber-card p-5 kpi-accent-yellow">
+              <div class="flex justify-between items-start">
+                <div>
+                  <p class="text-xs font-medium text-slate-500 mb-1">หมวดหมู่ความเสี่ยงหลัก</p>
+                  <h3 id="tab1-kpi-domains" class="text-2xl font-bold text-slate-900">7</h3>
+                  <p class="text-[11px] text-slate-400 mt-1">Risk Domain Categories</p>
+                </div>
+                <div class="w-9 h-9 rounded-lg bg-yellow-50 text-yellow-600 flex items-center justify-center">
+                  <i data-lucide="grid" class="w-5 h-5"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Filter Panel -->
+          <div class="cyber-card p-5">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+              <div class="flex items-center gap-2">
+                <i data-lucide="sliders-horizontal" class="w-4 h-4 text-cyber-blue"></i>
+                <h4 class="text-sm font-semibold text-slate-800">ตัวกรองข้อมูลความเสี่ยง AI (Interactive Filters)</h4>
+              </div>
+              <button onclick="resetTab1Filters()" class="text-xs font-medium text-cyber-blue hover:text-blue-700 flex items-center gap-1 self-start md:self-auto">
+                <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                <span>รีเซ็ตตัวกรองทั้งหมด</span>
+              </button>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+              <!-- Filter: Year -->
+              <div>
+                <label class="block text-xs font-medium text-slate-600 mb-1.5">ช่วงปีที่เกิดเหตุ (Year)</label>
+                <select id="tab1-filter-year" onchange="applyTab1Filters()" class="w-full text-xs rounded-lg border-slate-200 border p-2.5 bg-white text-slate-800 focus:ring-2 focus:ring-cyber-blue focus:border-transparent">
+                  <option value="all">ทุกปี (1983 - 2026)</option>
+                  <option value="2026">2026 (ปีปัจจุบัน)</option>
+                  <option value="2025">2025</option>
+                  <option value="2024">2024</option>
+                  <option value="2023">2023</option>
+                  <option value="2022">2022</option>
+                  <option value="2020-2026">ช่วง AI บูม (2020 - 2026)</option>
+                  <option value="pre-2020">ก่อนปี 2020</option>
+                </select>
+              </div>
+
+              <!-- Filter: Risk Domain -->
+              <div>
+                <label class="block text-xs font-medium text-slate-600 mb-1.5">กลุ่มความเสี่ยง (Risk Domain)</label>
+                <select id="tab1-filter-domain" onchange="applyTab1Filters()" class="w-full text-xs rounded-lg border-slate-200 border p-2.5 bg-white text-slate-800 focus:ring-2 focus:ring-cyber-blue focus:border-transparent">
+                  <option value="all">ทุกกลุ่มความเสี่ยง</option>
+                  <option value="Malicious Actors & Misuse">Malicious Actors & Misuse</option>
+                  <option value="AI System Safety, Failures & Limitations">AI System Safety, Failures & Limitations</option>
+                  <option value="Discrimination & Toxicity">Discrimination & Toxicity</option>
+                  <option value="Misinformation">Misinformation</option>
+                  <option value="Privacy & Security">Privacy & Security</option>
+                  <option value="Human-Computer Interaction">Human-Computer Interaction</option>
+                  <option value="Socioeconomic & Environmental Harms">Socioeconomic & Environmental Harms</option>
+                </select>
+              </div>
+
+              <!-- Filter: Region -->
+              <div>
+                <label class="block text-xs font-medium text-slate-600 mb-1.5">ภูมิภาค (Location Region)</label>
+                <select id="tab1-filter-region" onchange="applyTab1Filters()" class="w-full text-xs rounded-lg border-slate-200 border p-2.5 bg-white text-slate-800 focus:ring-2 focus:ring-cyber-blue focus:border-transparent">
+                  <option value="all">ทุกภูมิภาค</option>
+                  <option value="North America">North America (95)</option>
+                  <option value="Global">Global (57)</option>
+                  <option value="Europe">Europe (26)</option>
+                  <option value="Asia">Asia (14)</option>
+                  <option value="Oceania">Oceania (5)</option>
+                  <option value="Africa">Africa (2)</option>
+                  <option value="South America">South America (1)</option>
+                  <option value="Unspecified">Unspecified (1,549)</option>
+                </select>
+              </div>
+
+              <!-- Filter: Search Keyword -->
+              <div>
+                <label class="block text-xs font-medium text-slate-600 mb-1.5">ค้นหาคำสำคัญ (Search)</label>
+                <div class="relative">
+                  <input type="text" id="tab1-filter-search" oninput="debounce(applyTab1Filters, 300)()" placeholder="เช่น deepfake, bot, autonomous..." class="w-full text-xs rounded-lg border-slate-200 border p-2.5 pl-8 bg-white text-slate-800 focus:ring-2 focus:ring-cyber-blue focus:border-transparent">
+                  <i data-lucide="search" class="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-3"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Active Filter Badges -->
+            <div id="tab1-active-filters" class="flex flex-wrap gap-2 mt-4 pt-3 border-t border-slate-100 text-xs text-slate-500 items-center">
+              <span class="font-medium text-[11px] text-slate-400">ตัวกรองที่ใช้งาน:</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-[11px]">ทั้งหมด (ค่าเริ่มต้น)</span>
+            </div>
+          </div>
+
+          <!-- Empty State (Hidden by default) -->
+          <div id="tab1-empty-state" class="hidden cyber-card p-12 text-center">
+            <div class="w-12 h-12 rounded-full bg-slate-100 text-slate-400 mx-auto flex items-center justify-center mb-3">
+              <i data-lucide="folder-x" class="w-6 h-6"></i>
+            </div>
+            <h4 class="text-base font-semibold text-slate-800">ไม่พบข้อมูลที่ตรงกับเงื่อนไข</h4>
+            <p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto">โปรดปรับเปลี่ยนคำค้นหา หรือกดรีเซ็ตตัวกรองเพื่อดูข้อมูลทั้งหมด</p>
+            <button onclick="resetTab1Filters()" class="mt-4 px-4 py-2 bg-cyber-blue text-white rounded-lg text-xs font-medium hover:bg-blue-600">
+              รีเซ็ตตัวกรอง
+            </button>
+          </div>
+
+          <!-- Charts Grid Row 1 -->
+          <div id="tab1-charts-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Chart 1: Top 5 Risk Domains -->
+            <div class="cyber-card p-5 flex flex-col">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900">5 อันดับกลุ่มความเสี่ยงจาก AI สูงสุด (Top Risk Domains)</h4>
+                  <p class="text-[11px] text-slate-500">จำแนกตามจำนวนเหตุการณ์ที่บันทึกในฐานข้อมูล AIID</p>
+                </div>
+                <span class="px-2 py-1 rounded bg-blue-50 text-cyber-blue text-[10px] font-semibold">Incident Count</span>
+              </div>
+              <div class="chart-container flex-1 min-h-[300px]">
+                <canvas id="chart-top-domains"></canvas>
+              </div>
+            </div>
+
+            <!-- Chart 2: AI Incidents Over Time -->
+            <div class="cyber-card p-5 flex flex-col">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900">แนวโน้มเหตุการณ์ความเสี่ยง AI รายปี (Incidents Over Time)</h4>
+                  <p class="text-[11px] text-slate-500">การเติบโตของเหตุการณ์ความเสี่ยงที่ได้รับการตรวจสอบและบันทึก</p>
+                </div>
+                <span class="px-2 py-1 rounded bg-slate-100 text-slate-600 text-[10px] font-semibold">Annual Trend</span>
+              </div>
+              <div class="chart-container flex-1 min-h-[300px]">
+                <canvas id="chart-incidents-timeline"></canvas>
+              </div>
+            </div>
+
+            <!-- Chart 3: Risk Distribution Donut -->
+            <div class="cyber-card p-5 flex flex-col">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900">สัดส่วนการกระจายตัวของความเสี่ยง (Risk Distribution)</h4>
+                  <p class="text-[11px] text-slate-500">สัดส่วนร้อยละของแต่ละ Risk Domain จากเหตุการณ์ทั้งหมด</p>
+                </div>
+                <span class="px-2 py-1 rounded bg-slate-100 text-slate-600 text-[10px] font-semibold">Share %</span>
+              </div>
+              <div class="chart-container flex-1 min-h-[300px] flex items-center justify-center">
+                <canvas id="chart-risk-distribution"></canvas>
+              </div>
+            </div>
+
+            <!-- Chart 4: Regional Breakdown -->
+            <div class="cyber-card p-5 flex flex-col">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900">การกระจายตัวตามภูมิภาคทั่วโลก (Geographic Regions)</h4>
+                  <p class="text-[11px] text-slate-500">เฉพาะเหตุการณ์ที่มีการระบุ Location Region อย่างชัดเจน (200 เหตุการณ์)</p>
+                </div>
+                <span class="px-2 py-1 rounded bg-amber-50 text-amber-600 text-[10px] font-semibold">Global AIID</span>
+              </div>
+              <div class="chart-container flex-1 min-h-[300px]">
+                <canvas id="chart-regional-distribution"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Analytical Insights & Caveat Callout -->
+          <div class="cyber-card p-5 border-l-4 border-cyber-blue bg-blue-50/30">
+            <div class="flex items-start gap-3">
+              <i data-lucide="info" class="w-5 h-5 text-cyber-blue shrink-0 mt-0.5"></i>
+              <div class="space-y-1 text-xs text-slate-700">
+                <h5 class="font-bold text-slate-900 text-sm">บทวิเคราะห์และความโปร่งใสของข้อมูลความเสี่ยง AI</h5>
+                <p>
+                  • <strong>กลุ่มความเสี่ยงที่พบสูงสุด:</strong> คือ <em>Malicious Actors & Misuse</em> (566 เหตุการณ์ หรือ 37.8% ของกลุ่มที่จำแนกได้) ตามด้วย <em>AI System Safety & Failures</em> (313 เหตุการณ์) และ <em>Discrimination & Toxicity</em> (243 เหตุการณ์)
+                </p>
+                <p>
+                  • <strong>แนวโน้มการเติบโต:</strong> อัตราการรายงานเหตุการณ์พุ่งสูงขึ้นอย่างก้าวกระโดดตั้งแต่ปี 2021 เป็นต้นมา โดยเฉพาะยุค Generative AI (2023 - 2026)
+                </p>
+                <p class="text-amber-800 font-medium">
+                  • <strong>ข้อพึงระวังด้านขอบเขตภูมิศาสตร์:</strong> ฐานข้อมูล AI Incident Database (AIID) เป็นฐานข้อมูลรวบรวมเหตุการณ์ระดับนานาชาติทั่วโลก (ภูมิภาคเอเชียมีบันทึก 14 เหตุการณ์) ไม่ใช่สถิติเฉพาะประเทศไทย ระบบจึงนำเสนอเพื่อสะท้อนภาพรวมภัยคุกคามสากล
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================================================= -->
+        <!-- TAB 2: FINANCIAL FAKE NEWS ANALYSIS -->
+        <!-- ======================================================= -->
+        <section id="tab2-content" class="hidden space-y-6">
+          <!-- KPI Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            <div class="cyber-card p-5 kpi-accent-blue">
+              <p class="text-xs font-medium text-slate-500 mb-1">ข่าวการเงินที่ได้รับการตรวจ</p>
+              <h3 id="tab2-kpi-total" class="text-2xl font-bold text-slate-900">2,514</h3>
+              <p class="text-[11px] text-slate-400 mt-1">หมวดการเงิน-หุ้น</p>
+            </div>
+
+            <div class="cyber-card p-5 kpi-accent-pink">
+              <p class="text-xs font-medium text-slate-500 mb-1">ข่าวปลอมด้านการเงิน</p>
+              <h3 id="tab2-kpi-fake" class="text-2xl font-bold text-cyber-pink">2,339</h3>
+              <p class="text-[11px] text-slate-400 mt-1">ผลสรุป: ข่าวปลอม</p>
+            </div>
+
+            <div class="cyber-card p-5 kpi-accent-orange">
+              <p class="text-xs font-medium text-slate-500 mb-1">ข่าวบิดเบือนด้านการเงิน</p>
+              <h3 id="tab2-kpi-distorted" class="text-2xl font-bold text-amber-500">57</h3>
+              <p class="text-[11px] text-slate-400 mt-1">ผลสรุป: ข่าวบิดเบือน</p>
+            </div>
+
+            <div class="cyber-card p-5 kpi-accent-yellow">
+              <p class="text-xs font-medium text-slate-500 mb-1">สัดส่วนข่าวปลอม (Fake %)</p>
+              <h3 id="tab2-kpi-pct" class="text-2xl font-bold text-slate-900">93.04%</h3>
+              <p class="text-[11px] text-slate-400 mt-1">จากข่าวการเงินที่มีผลสรุป</p>
+            </div>
+
+            <div class="cyber-card p-5 border-t-4 border-slate-400">
+              <p class="text-xs font-medium text-slate-500 mb-1">ยอดเข้าชมเฉลี่ยต่อข่าว</p>
+              <h3 id="tab2-kpi-views" class="text-2xl font-bold text-slate-700">1,429</h3>
+              <p class="text-[11px] text-slate-400 mt-1">Average View Count</p>
+            </div>
+          </div>
+
+          <!-- Filter Panel -->
+          <div class="cyber-card p-5">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+              <div class="flex items-center gap-2">
+                <i data-lucide="filter" class="w-4 h-4 text-cyber-pink"></i>
+                <h4 class="text-sm font-semibold text-slate-800">ตัวกรองข่าวปลอมและการเงิน (News Filters)</h4>
+              </div>
+              <button onclick="resetTab2Filters()" class="text-xs font-medium text-cyber-blue hover:text-blue-700 flex items-center gap-1 self-start md:self-auto">
+                <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                <span>รีเซ็ตตัวกรองทั้งหมด</span>
+              </button>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+              <!-- Filter: Year -->
+              <div>
+                <label class="block text-xs font-medium text-slate-600 mb-1.5">ปีที่เผยแพร่ (Year)</label>
+                <select id="tab2-filter-year" onchange="applyTab2Filters()" class="w-full text-xs rounded-lg border-slate-200 border p-2.5 bg-white text-slate-800 focus:ring-2 focus:ring-cyber-pink focus:border-transparent">
+                  <option value="all">ทุกปี (2019 - 2026)</option>
+                  <option value="2026">2026</option>
+                  <option value="2025">2025</option>
+                  <option value="2024">2024</option>
+                  <option value="2023">2023</option>
+                  <option value="2022">2022</option>
+                </select>
+              </div>
+
+              <!-- Filter: Verdict -->
+              <div>
+                <label class="block text-xs font-medium text-slate-600 mb-1.5">ผลการตรวจสอบ (Verdict)</label>
+                <select id="tab2-filter-verdict" onchange="applyTab2Filters()" class="w-full text-xs rounded-lg border-slate-200 border p-2.5 bg-white text-slate-800 focus:ring-2 focus:ring-cyber-pink focus:border-transparent">
+                  <option value="all">ทุกผลการตรวจสอบ</option>
+                  <option value="ข่าวปลอม">ข่าวปลอม (Fake News)</option>
+                  <option value="ข่าวบิดเบือน">ข่าวบิดเบือน (Distorted)</option>
+                  <option value="ข่าวจริง">ข่าวจริง (True Information)</option>
+                </select>
+              </div>
+
+              <!-- Filter: Search -->
+              <div>
+                <label class="block text-xs font-medium text-slate-600 mb-1.5">ค้นหาพาดหัวข่าว / คำสำคัญ</label>
+                <div class="relative">
+                  <input type="text" id="tab2-filter-search" oninput="debounce(applyTab2Filters, 300)()" placeholder="เช่น ออมสิน, เงินกู้, หุ้น, เทรด..." class="w-full text-xs rounded-lg border-slate-200 border p-2.5 pl-8 bg-white text-slate-800 focus:ring-2 focus:ring-cyber-pink focus:border-transparent">
+                  <i data-lucide="search" class="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-3"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Active Filter Badges -->
+            <div id="tab2-active-filters" class="flex flex-wrap gap-2 mt-4 pt-3 border-t border-slate-100 text-xs text-slate-500 items-center">
+              <span class="font-medium text-[11px] text-slate-400">ตัวกรองที่ใช้งาน:</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-[11px]">ทั้งหมด (ค่าเริ่มต้น)</span>
+            </div>
+          </div>
+
+          <!-- Empty State -->
+          <div id="tab2-empty-state" class="hidden cyber-card p-12 text-center">
+            <div class="w-12 h-12 rounded-full bg-slate-100 text-slate-400 mx-auto flex items-center justify-center mb-3">
+              <i data-lucide="newspaper" class="w-6 h-6"></i>
+            </div>
+            <h4 class="text-base font-semibold text-slate-800">ไม่พบข่าวที่ตรงกับเงื่อนไข</h4>
+            <p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto">โปรดปรับคำค้นหา หรือรีเซ็ตตัวกรองเพื่อดูข่าวทั้งหมด</p>
+            <button onclick="resetTab2Filters()" class="mt-4 px-4 py-2 bg-cyber-pink text-white rounded-lg text-xs font-medium hover:bg-rose-600">
+              รีเซ็ตตัวกรอง
+            </button>
+          </div>
+
+          <!-- Charts Grid -->
+          <div id="tab2-charts-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Chart 1: Fake Topics -->
+            <div class="cyber-card p-5 flex flex-col">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900">หัวข้อข่าวปลอมด้านการเงินที่พบบ่อยสุด (Top Topics)</h4>
+                  <p class="text-[11px] text-slate-500">ประเด็นการหลอกลวงด้านการเงินที่ถูกส่งตรวจบ่อยที่สุด</p>
+                </div>
+                <span class="px-2 py-1 rounded bg-pink-50 text-cyber-pink text-[10px] font-semibold">Fake News Tags</span>
+              </div>
+              <div class="chart-container flex-1 min-h-[300px]">
+                <canvas id="chart-fake-topics"></canvas>
+              </div>
+            </div>
+
+            <!-- Chart 2: Verdict Donut -->
+            <div class="cyber-card p-5 flex flex-col">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900">สัดส่วนผลการตรวจสอบข่าวการเงิน (Verdict Breakdown)</h4>
+                  <p class="text-[11px] text-slate-500">เปรียบเทียบสัดส่วน ข่าวปลอม ข่าวจริง และข่าวบิดเบือน</p>
+                </div>
+                <span class="px-2 py-1 rounded bg-slate-100 text-slate-600 text-[10px] font-semibold">Verdict Ratio</span>
+              </div>
+              <div class="chart-container flex-1 min-h-[300px] flex items-center justify-center">
+                <canvas id="chart-verdict-donut"></canvas>
+              </div>
+            </div>
+
+            <!-- Chart 3: Monthly Trends -->
+            <div class="cyber-card p-5 flex flex-col">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900">แนวโน้มการตรวจสอบข่าวปลอมการเงินรายเดือน (Monthly Trend)</h4>
+                  <p class="text-[11px] text-slate-500">จำนวนข่าวปลอมและข่าวบิดเบือนที่ตรวจสอบในแต่ละเดือน</p>
+                </div>
+                <span class="px-2 py-1 rounded bg-blue-50 text-cyber-blue text-[10px] font-semibold">Monthly Timeline</span>
+              </div>
+              <div class="chart-container flex-1 min-h-[300px]">
+                <canvas id="chart-monthly-trends"></canvas>
+              </div>
+            </div>
+
+            <!-- Chart 4: Top News by Views -->
+            <div class="cyber-card p-5 flex flex-col">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900">ข่าวการเงินที่มียอดเข้าชมสูงสุด 10 อันดับ (Top Views)</h4>
+                  <p class="text-[11px] text-slate-500">รายการข่าวที่มีการคลิกอ่านบนศูนย์ต่อต้านข่าวปลอมสูงสุด</p>
+                </div>
+                <span class="px-2 py-1 rounded bg-amber-50 text-amber-600 text-[10px] font-semibold">Page Views</span>
+              </div>
+              <div class="chart-container flex-1 min-h-[300px]">
+                <canvas id="chart-top-views"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive News Table -->
+          <div class="cyber-card p-5">
+            <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-3 mb-4">
+              <div>
+                <h4 class="text-sm font-bold text-slate-900">ตารางรายการข่าวการเงินและการลงทุนที่ผ่านการตรวจสอบ</h4>
+                <p class="text-[11px] text-slate-500">สามารถค้นหา กรอง และคลิกลิงก์เพื่อเปิดดูบทความต้นฉบับได้</p>
+              </div>
+              <div class="text-xs text-slate-500 font-medium">
+                แสดงผล <span id="table-showing-count">0</span> จากทั้งหมด <span id="table-total-count">0</span> ข่าว
+              </div>
+            </div>
+
+            <div class="overflow-x-auto rounded-lg border border-slate-200">
+              <table class="w-full text-left text-xs text-slate-700">
+                <thead class="bg-slate-50 text-slate-600 uppercase text-[10px] border-b border-slate-200">
+                  <tr>
+                    <th class="py-3 px-3">วันที่เผยแพร่</th>
+                    <th class="py-3 px-4">พาดหัวข่าว (Headline)</th>
+                    <th class="py-3 px-3">หมวดหมู่</th>
+                    <th class="py-3 px-3">ผลการตรวจ</th>
+                    <th class="py-3 px-3 text-right">ยอดเข้าชม</th>
+                    <th class="py-3 px-3 text-center">ลิงก์ต้นฉบับ</th>
+                  </tr>
+                </thead>
+                <tbody id="news-table-body" class="divide-y divide-slate-100 bg-white">
+                  <!-- Injected via JavaScript -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex items-center justify-between pt-4 text-xs text-slate-500">
+              <div class="flex items-center gap-2">
+                <span>หน้า:</span>
+                <span id="table-page-info" class="font-semibold text-slate-800">1 / 1</span>
+              </div>
+              <div class="flex gap-1.5">
+                <button onclick="prevTablePage()" id="btn-prev-page" class="px-3 py-1.5 rounded-md border border-slate-200 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed">
+                  ย้อนกลับ
+                </button>
+                <button onclick="nextTablePage()" id="btn-next-page" class="px-3 py-1.5 rounded-md border border-slate-200 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed">
+                  ถัดไป
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================================================= -->
+        <!-- TAB 3: FAKE NEWS & ONLINE SCAM RELATIONSHIP -->
+        <!-- ======================================================= -->
+        <section id="tab3-content" class="hidden space-y-6">
+          <!-- KPI Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="cyber-card p-5 kpi-accent-pink">
+              <p class="text-xs font-medium text-slate-500 mb-1">ข่าวปลอมการเงินเฉลี่ยต่อสัปดาห์</p>
+              <h3 id="tab3-kpi-fake-weekly" class="text-2xl font-bold text-cyber-pink">5.9 ข่าว</h3>
+              <p class="text-[11px] text-slate-400 mt-1">Average Weekly False Finance</p>
+            </div>
+
+            <div class="cyber-card p-5 kpi-accent-blue">
+              <p class="text-xs font-medium text-slate-500 mb-1">คดีหลอกลวงออนไลน์เฉลี่ยต่อสัปดาห์</p>
+              <h3 id="tab3-kpi-cases-weekly" class="text-2xl font-bold text-cyber-blue">7,946 คดี</h3>
+              <p class="text-[11px] text-slate-400 mt-1">มัธยฐาน: 6,440 คดี/สัปดาห์</p>
+            </div>
+
+            <div class="cyber-card p-5 kpi-accent-orange">
+              <p class="text-xs font-medium text-slate-500 mb-1">มูลค่าความเสียหายเฉลี่ยต่อสัปดาห์</p>
+              <h3 id="tab3-kpi-loss-weekly" class="text-2xl font-bold text-amber-500">378.7 ล้านบาท</h3>
+              <p class="text-[11px] text-slate-400 mt-1">มัธยฐาน: 315.0 ล้านบาท/สัปดาห์</p>
+            </div>
+
+            <div class="cyber-card p-5 kpi-accent-yellow">
+              <p class="text-xs font-medium text-slate-500 mb-1">ความเสียหายเฉลี่ยต่อคดี</p>
+              <h3 id="tab3-kpi-loss-per-case" class="text-2xl font-bold text-slate-900">47,661 บาท</h3>
+              <p class="text-[11px] text-slate-400 mt-1">Average Loss per Case</p>
+            </div>
+          </div>
+
+          <!-- Outlier Sensitivity Analysis & Statistical Metrics Panel -->
+          <div class="cyber-card p-5 bg-gradient-to-r from-slate-900 to-slate-800 text-white">
+            <div class="flex flex-col lg:flex-row justify-between lg:items-center gap-4 pb-4 border-b border-slate-700/80">
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-400/20 text-amber-300 border border-amber-400/30">
+                    SENSITIVITY ANALYSIS
+                  </span>
+                  <h4 class="text-sm font-bold text-white">การทดสอบความอ่อนไหวต่อค่าผิดปกติ (Statistical Sensitivity)</h4>
+                </div>
+                <p class="text-xs text-slate-300">
+                  สลับดูผลสหสัมพันธ์ระหว่างการรวมข้อมูลทุกสัปดาห์ หรือแยกสัปดาห์ผิดปกติ (สัปดาห์ 16 ส.ค. 2026: คดีพุ่ง 79,311 คดี)
+                </p>
+              </div>
+
+              <!-- Sensitivity Toggle Buttons -->
+              <div class="flex bg-slate-800/90 p-1 rounded-xl border border-slate-700 shrink-0">
+                <button onclick="setOutlierMode(false)" id="btn-mode-all" class="px-3 py-1.5 rounded-lg text-xs font-semibold toggle-pill-active transition-all">
+                  รวมทุกสัปดาห์ (48 สัปดาห์)
+                </button>
+                <button onclick="setOutlierMode(true)" id="btn-mode-clean" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition-all">
+                  ไม่รวมสัปดาห์ผิดปกติ (47 สัปดาห์)
+                </button>
+              </div>
+            </div>
+
+            <!-- Correlation Metrics Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+              <!-- Correlation A -->
+              <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/70">
+                <div class="flex justify-between items-start mb-2">
+                  <span class="text-xs text-slate-400 font-medium">ความสัมพันธ์: ข่าวปลอมการเงิน vs จำนวนคดีหลอกลวง</span>
+                  <span id="corr-cases-strength" class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-700 text-slate-300">
+                    ไม่มีนัยสำคัญ
+                  </span>
+                </div>
+                <div class="flex items-baseline gap-3">
+                  <div class="text-3xl font-extrabold text-cyber-blue" id="corr-cases-r">-0.0903</div>
+                  <div class="text-xs text-slate-400">
+                    <div>Pearson r</div>
+                    <div id="corr-cases-p">p-value: 0.5418</div>
+                  </div>
+                </div>
+                <p id="corr-cases-desc" class="text-xs text-slate-300 mt-2">
+                  ความสัมพันธ์เชิงลบอ่อนมากและไม่มีนัยสำคัญทางสถิติเมื่อรวมสัปดาห์ผิดปกติ (N = 48)
+                </p>
+              </div>
+
+              <!-- Correlation B -->
+              <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700/70">
+                <div class="flex justify-between items-start mb-2">
+                  <span class="text-xs text-slate-400 font-medium">ความสัมพันธ์: ข่าวปลอมการเงิน vs มูลค่าความเสียหาย</span>
+                  <span id="corr-loss-strength" class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-700 text-slate-300">
+                    ไม่มีนัยสำคัญ
+                  </span>
+                </div>
+                <div class="flex items-baseline gap-3">
+                  <div class="text-3xl font-extrabold text-cyber-orange" id="corr-loss-r">+0.0557</div>
+                  <div class="text-xs text-slate-400">
+                    <div>Pearson r</div>
+                    <div id="corr-loss-p">p-value: 0.7070</div>
+                  </div>
+                </div>
+                <p id="corr-loss-desc" class="text-xs text-slate-300 mt-2">
+                  ความสัมพันธ์เชิงบวกอ่อนมากและไม่มีนัยสำคัญทางสถิติเมื่อรวมสัปดาห์ผิดปกติ (N = 48)
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts -->
+          <div class="space-y-6">
+            <!-- Weekly Trend Comparison (Dual Axis) -->
+            <div class="cyber-card p-5">
+              <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 mb-4">
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900">แนวโน้มรายสัปดาห์: ข่าวปลอมการเงิน เทียบกับ สถิติคดีหลอกลวงออนไลน์</h4>
+                  <p class="text-[11px] text-slate-500">แกนซ้าย: จำนวนข่าวปลอมการเงิน (ข่าว) | แกนขวา: จำนวนคดีแจ้งความออนไลน์ (คดี)</p>
+                </div>
+                <div class="flex items-center gap-3 text-xs">
+                  <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-cyber-pink"></span> ข่าวปลอมการเงิน</span>
+                  <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-cyber-blue"></span> คดีหลอกลวงออนไลน์</span>
+                </div>
+              </div>
+              <div class="chart-container min-h-[350px]">
+                <canvas id="chart-weekly-dual-trend"></canvas>
+              </div>
+            </div>
+
+            <!-- Scatter Plots Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <!-- Scatter 1: Fake News vs Cases -->
+              <div class="cyber-card p-5 flex flex-col">
+                <div class="flex items-center justify-between mb-4">
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-900">แผนภาพการกระจาย: ข่าวปลอม vs จำนวนคดี</h4>
+                    <p class="text-[11px] text-slate-500">แกน X: ข่าวปลอมการเงิน (ข่าว) | แกน Y: คดีหลอกลวง (คดี)</p>
+                  </div>
+                  <span class="px-2 py-1 rounded bg-blue-50 text-cyber-blue text-[10px] font-semibold">Linear Fit</span>
+                </div>
+                <div class="chart-container flex-1 min-h-[320px]">
+                  <canvas id="chart-scatter-cases"></canvas>
+                </div>
+              </div>
+
+              <!-- Scatter 2: Fake News vs Loss Baht -->
+              <div class="cyber-card p-5 flex flex-col">
+                <div class="flex items-center justify-between mb-4">
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-900">แผนภาพการกระจาย: ข่าวปลอม vs มูลค่าความเสียหาย</h4>
+                    <p class="text-[11px] text-slate-500">แกน X: ข่าวปลอมการเงิน (ข่าว) | แกน Y: ความเสียหาย (บาท)</p>
+                  </div>
+                  <span class="px-2 py-1 rounded bg-amber-50 text-amber-600 text-[10px] font-semibold">Linear Fit</span>
+                </div>
+                <div class="chart-container flex-1 min-h-[320px]">
+                  <canvas id="chart-scatter-loss"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rigorous Scientific Caution Callout -->
+          <div class="cyber-card p-5 border-l-4 border-amber-500 bg-amber-50/30">
+            <div class="flex items-start gap-3">
+              <i data-lucide="alert-octagon" class="w-5 h-5 text-amber-500 shrink-0 mt-0.5"></i>
+              <div class="space-y-1.5 text-xs text-slate-700">
+                <h5 class="font-bold text-slate-900 text-sm">หลักการแปลผลและความโปร่งใสเชิงสถิติ (Statistical Integrity)</h5>
+                <p>
+                  1. <strong>Correlation Does Not Imply Causation:</strong> แม้ตัดสัปดาห์ผิดปกติแล้วค่าสหสัมพันธ์จะอยู่ที่ $r \approx 0.54$ ($p < 0.001$) แต่ไม่ได้หมายความว่าข่าวปลอมเป็นสาเหตุโดยตรงของการเกิดคดีหลอกลวง
+                </p>
+                <p>
+                  2. <strong>Reporting & Monitoring Dynamics:</strong> การเพิ่มขึ้นของข่าวที่ตรวจสอบอาจสะท้อนความเข้มงวดในการมอนิเตอร์ของศูนย์ต่อต้านข่าวปลอม (AFNC) ในช่วงที่มีข่าวสารเตือนภัยหนาแน่น ไม่ใช่จำนวนข่าวปลอมที่เกิดขึ้นจริงในระบบทั้งหมด
+                </p>
+                <p>
+                  3. <strong>ช่องทางการหลอกลวง:</strong> ผู้เสียหายส่วนใหญ่ถูกชักชวนผ่านช่องทางข้อความส่วนตัว (Direct Message, LINE, SMS, Telegram) ซึ่งไม่ปรากฏในเว็บข่าวสาธารณะ
+                </p>
+                <p>
+                  4. <strong>บันทึกความผิดปกติสัปดาห์ 16 ส.ค. 2026:</strong> รายงานทางการของ ศปอส. ระบุคดี 79,311 คดี แต่แจกแจงประเภทย่อย 4,892 คดี (คิดเป็น 80.6%) ซึ่งในทางคณิตศาสตร์สอดคล้องกับคดีรวม ~6,070 คดี ดังนั้นการนำเสนอผลทั้งแบบรวมและแยกสัปดาห์นี้จึงถูกต้องตามหลักวิทยาศาสตร์ข้อมูล
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Weekly Data Table -->
+          <div class="cyber-card p-5">
+            <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-3 mb-4">
+              <div>
+                <h4 class="text-sm font-bold text-slate-900">ตารางข้อมูลสถิติรายสัปดาห์ (Weekly Reporting Panel)</h4>
+                <p class="text-[11px] text-slate-500">ข้อมูลรวมระดับสัปดาห์ระหว่างศูนย์ต่อต้านข่าวปลอมและสถิติคดีแจ้งความออนไลน์</p>
+              </div>
+              <button onclick="exportWeeklyCSV()" class="px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 text-xs font-medium text-slate-700 flex items-center gap-1.5 self-start sm:self-auto">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                <span>ดาวน์โหลดข้อมูล CSV</span>
+              </button>
+            </div>
+
+            <div class="overflow-x-auto rounded-lg border border-slate-200">
+              <table class="w-full text-left text-xs text-slate-700">
+                <thead class="bg-slate-50 text-slate-600 uppercase text-[10px] border-b border-slate-200">
+                  <tr>
+                    <th class="py-3 px-3">สัปดาห์ (Week Start)</th>
+                    <th class="py-3 px-3 text-right">ข่าวปลอมการเงิน</th>
+                    <th class="py-3 px-3 text-right">คดีหลอกลวง</th>
+                    <th class="py-3 px-3 text-right">ความเสียหาย (บาท)</th>
+                    <th class="py-3 px-3 text-right">เฉลี่ยต่อคดี (บาท)</th>
+                    <th class="py-3 px-3">ความแม่นยำ</th>
+                    <th class="py-3 px-3">หมายเหตุ / ความผิดปกติ</th>
+                  </tr>
+                </thead>
+                <tbody id="weekly-table-body" class="divide-y divide-slate-100 bg-white">
+                  <!-- Injected via JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Footer -->
+      <footer class="p-6 border-t border-slate-200 bg-white text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-3 mt-auto">
+        <div>
+          <span>© 2026 AI Digital Threat Intelligence Dashboard • ภาควิชา/หลักสูตร Data Science & Visualization</span>
+        </div>
+        <div class="flex items-center gap-4 text-[11px]">
+          <span>แหล่งข้อมูล: AIID, AFNC, ACSC</span>
+          <span>•</span>
+          <a href="https://github.com/phlapapon-kulto/PythonDataViz2026_Dashboard_Group4" target="_blank" class="hover:text-cyber-blue flex items-center gap-1">
+            <i data-lucide="github" class="w-3.5 h-3.5"></i>
+            <span>GitHub Repository</span>
+          </a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Load Data Store (Zero-CORS fallback & lightning speed) -->
+  <script src="data/processed/data_store.js"></script>
+
+  <!-- Load Main Application Logic -->
+  <script src="js/app.js"></script>
+</body>
+</html>
