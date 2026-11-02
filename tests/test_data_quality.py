@@ -7,7 +7,7 @@ import scipy.stats as stats
 class TestDataQuality(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.repo_dir = r"c:\Users\USER\PythonDataViz2026_Dashboard_Group4"
+        cls.repo_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
         cls.processed_dir = os.path.join(cls.repo_dir, "data", "processed")
         
         cls.df_aiid = pd.read_csv(os.path.join(cls.processed_dir, "ai_incidents_clean.csv"))

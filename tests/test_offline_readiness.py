@@ -5,7 +5,7 @@ import re
 class TestOfflineReadiness(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.repo_dir = r"c:\Users\USER\PythonDataViz2026_Dashboard_Group4"
+        cls.repo_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
         cls.index_path = os.path.join(cls.repo_dir, "index.html")
         with open(cls.index_path, "r", encoding="utf-8") as f:
             cls.html_content = f.read()
