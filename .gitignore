@@ -1,0 +1,25 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Unit test / coverage
+.coverage
+.pytest_cache/
+htmlcov/
+
+# Environment variables & secrets
+.env
+.env.*
+*.secret
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
